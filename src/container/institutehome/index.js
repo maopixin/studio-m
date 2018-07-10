@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { TabBar,WingBlank,Carousel,Flex,WhiteSpace } from 'antd-mobile';
-import Title from '../../component/Title/index'
-import './style/index.css'
+import Title from '../../component/Title/index';
+import Information from '../../component/Information/index';
+import './style/index.css';
 
 export default class institutehome extends Component {
   constructor(props) {
@@ -126,6 +127,11 @@ export default class institutehome extends Component {
             {rankListReal}
           </Carousel>
         </div>
+        <WhiteSpace size='md'/>
+        <Title title='工作室资讯' showMore={true} to='/xxx/xxx'/>
+        <Information type='notice' time="2018-01-06"/>
+        <Information type='information' time="2018-01-06"/>
+        <Information type='propaganda' time="2018-01-06"/>
         {/* 底部状态栏 */}
         <div style={this.state.fullScreen ? { position: 'fixed', height: '50px', width: '100%', bottom: 0 } : { height: 400 }}>
           <TabBar
