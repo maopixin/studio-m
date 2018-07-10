@@ -1,0 +1,84 @@
+body{
+    padding-bottom: 50px;
+}
+.rank_type{
+    border:1px solid #ebebeb;
+    line-height: 24px;
+    height:24px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 12px;
+    width: 22%;
+    box-sizing: border-box;
+    margin: 0 4% 8px 0;
+    &:nth-of-type(4n){
+        margin-right: 0;
+    }
+}
+.rank_type_list{
+    padding-top: 8px;
+}
+.rank_active{
+    color: #38a6de;
+}
+.rank_list{
+    padding: 15px 15px 30px;
+    .rank_list_box{
+        li{
+            height: 36px;
+            font-size: 12px;
+            line-height: 36px;
+            font-weight: normal;
+            background-color: #efefef;
+            color: #666666;
+            div{
+                float: left;
+            }
+            .rank_num{
+                width: 18%;
+                margin-right: 15%;
+                text-align: center;
+            }
+            .studio_name{
+                width: 44%;
+            }
+            .visitor_num{
+                width: 17%;
+                text-align: right;
+            }
+        }
+        .rank_list_head{
+            background-color: #9d9d9d;
+            color: #fff;
+        }
+        .f_red{
+            background-color: #f5cfd3;
+            .rank_num{
+                color: transparent;
+                background: url('../../../common/assets/img/flower-red.png') no-repeat center center;
+                background-size: 42%;
+            }
+        }
+        .f_blue{
+            background-color: #d1e7f4;
+            .rank_num{
+                color: transparent;
+                background: url('../../../common/assets/img/flower_blue.png') no-repeat center center;
+                background-size: 42%;
+            }
+        }
+        .f_yellow{
+            background-color: #f3e7d8;
+            .rank_num{
+                color: transparent;
+                background: url('../../../common/assets/img/flower_yellow.png') no-repeat center center;
+                background-size: 42%;
+            }
+        }
+    }
+}
+.carousel_bottom{
+    .slider-decorator-0{
+        bottom: -24px !important;
+    }
+}
