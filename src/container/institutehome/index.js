@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { TabBar,WingBlank,Carousel,Flex,WhiteSpace } from 'antd-mobile';
 import Title from '../../component/Title/index';
 import Information from '../../component/Information/index';
+import BlockItem from '../../component/BlockItem/index';
+import VideoPlayItem from '../../component/VideoPlayItem/index'
 import './style/index.css';
 
 export default class institutehome extends Component {
@@ -17,6 +19,7 @@ export default class institutehome extends Component {
       rankActiveNum:0,
       rankListOne:[{},{},{},{},{}],
       rankListTwo:[{},{},{},{},{}],
+      BlockItemData:[{},{}]
     };
     this.handleRankTypeClick = this.handleRankTypeClick.bind(this);
   }
@@ -34,7 +37,7 @@ export default class institutehome extends Component {
     })
   }
   render() {
-    const {rankActiveNum} = this.state;
+    const {rankActiveNum,BlockItemData} = this.state;
     const {handleRankTypeClick} =this;
     const rankList = this.state.rankType.map((val,key)=>{
       if(rankActiveNum===key){
@@ -132,6 +135,54 @@ export default class institutehome extends Component {
         <Information type='notice' time="2018-01-06"/>
         <Information type='information' time="2018-01-06"/>
         <Information type='propaganda' time="2018-01-06"/>
+        <WhiteSpace size='md'/>
+
+        <Title title='特色展示' showMore={true} to='/xxx/xxx'/>
+        <div className='bg_fff'>
+          <WhiteSpace size='md'/>
+          <WingBlank size='lg' className='clearfix'>
+            {BlockItemData.map((val,key)=>{
+              return (<BlockItem key={key} itemData={{}}/>)
+            })}
+          </WingBlank>
+          <WhiteSpace size='md'/>
+        </div>
+        <WhiteSpace size='md'/>
+
+        <Title title='活动案例' showMore={true} to='/xxx/xxx'/>
+        <div className='bg_fff'>
+          <WhiteSpace size='md'/>
+          <WingBlank size='lg' className='clearfix'>
+            {BlockItemData.map((val,key)=>{
+              return (<BlockItem key={key} itemData={{}}/>)
+            })}
+          </WingBlank>
+          <WhiteSpace size='md'/>
+        </div>
+        <WhiteSpace size='md'/>
+
+        <Title title='名师简介'/>
+        <div className='bg_fff'>
+          <WhiteSpace size='md'/>
+            <WingBlank>
+              <div className='star_teacher_info'><VideoPlayItem/></div>
+              <div className='star_teacher_title'>名师工作室</div>
+            </WingBlank>
+          <WhiteSpace size='md'/>
+        </div>
+        <WhiteSpace size='md'/>
+
+        <Title title='每日一课' moreText='往期回顾' showMore={true} to='/s'/>
+        <div className='bg_fff'>
+          <WhiteSpace size='md'/>
+            <WingBlank>
+              <div className='star_teacher_info'><VideoPlayItem/></div>
+              <div className='star_teacher_title'>名师工作室</div>
+            </WingBlank>
+          <WhiteSpace size='md'/>
+        </div>
+        <WhiteSpace size='md'/>
+
         {/* 底部状态栏 */}
         <div style={this.state.fullScreen ? { position: 'fixed', height: '50px', width: '100%', bottom: 0 } : { height: 400 }}>
           <TabBar

@@ -78,3 +78,11 @@ body {
 .carousel_bottom .slider-decorator-0 {
   bottom: -24px !important;
 }
+.star_teacher_info {
+  height: 140px;
+}
+.star_teacher_title {
+  font-size: 12px;
+  line-height: 32px;
+  color: #5e5e5e;
+}

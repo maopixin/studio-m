@@ -4,10 +4,10 @@ import './style/index.css'
 export default class Title extends Component {
 
   render() {
-    const {title,showMore,to} = this.props;
+    const {title,showMore,to,moreText} = this.props;
     let more;
     if(showMore){
-      more=(<Link to={to} className='more'>更多</Link>)
+      more=(<Link to={to} className='more'>{moreText||'更多'}</Link>)
     }
     return (
       <div className='common_title'>

@@ -1,0 +1,26 @@
+.block_item {
+  width: 48%;
+  float: left;
+}
+.block_item:nth-of-type(2n) {
+  float: right;
+}
+.block_item img {
+  width: 100%;
+  height: 110px;
+}
+.block_item span {
+  display: block;
+  font-size: 12px;
+  line-height: 20px;
+  text-indent: 1em;
+  background-color: #f4f5f9;
+}
+.block_item .block_item_title {
+  padding-top: 6px;
+  color: #3a3b3d;
+}
+.block_item .block_item_studio {
+  padding-bottom: 6px;
+  color: #969799;
+}
