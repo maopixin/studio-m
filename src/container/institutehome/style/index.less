@@ -55,7 +55,7 @@ body{
             background-color: #f5cfd3;
             .rank_num{
                 color: transparent;
-                background: url('../../../common/assets/img/flower-red.png') no-repeat center center;
+                background: url('../../../common/assets/svg/card1.svg') no-repeat center center;
                 background-size: 42%;
             }
         }
@@ -63,15 +63,15 @@ body{
             background-color: #d1e7f4;
             .rank_num{
                 color: transparent;
-                background: url('../../../common/assets/img/flower_blue.png') no-repeat center center;
-                background-size: 42%;
+                background: url('../../../common/assets/svg/card2.svg') no-repeat center center;
+                background-size: 38%;
             }
         }
         .f_yellow{
             background-color: #f3e7d8;
             .rank_num{
                 color: transparent;
-                background: url('../../../common/assets/img/flower_yellow.png') no-repeat center center;
+                background: url('../../../common/assets/svg/card3.svg') no-repeat center center;
                 background-size: 42%;
             }
         }
@@ -89,4 +89,31 @@ body{
     font-size: 12px;
     line-height: 32px;
     color: #5e5e5e;
+}
+.lesson_pic{
+    float: left;
+    width: 48%;
+    height: 124px;
+}
+.lesson_info{
+    float: right;
+    width: 48%;
+    font-size: 12px;
+    line-height: 24px;
+    .lesson_info_title{
+        height:48px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        position: relative;
+        margin-bottom: 40px;
+    }
+    .lesson_info_person,.lesson_info_evaluate{
+        line-height: 18px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }

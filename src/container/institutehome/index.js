@@ -175,14 +175,22 @@ export default class institutehome extends Component {
         <Title title='每日一课' moreText='往期回顾' showMore={true} to='/s'/>
         <div className='bg_fff'>
           <WhiteSpace size='md'/>
-            <WingBlank>
-              <div className='star_teacher_info'><VideoPlayItem/></div>
-              <div className='star_teacher_title'>名师工作室</div>
+            <WingBlank className='clearfix'>
+              <div className='lesson_pic'><VideoPlayItem/></div>
+              <div className='lesson_info'>
+                <div className='lesson_info_title'>张紧轮名师公张紧轮名师公司做事张紧轮名师公司做事张紧轮名师公司做事张紧轮名师公司做事司做事<span className='clam_line'>...</span></div>
+                <div className='lesson_info_person'>授课人：天之大</div>
+                <div className='lesson_info_evaluate'>点评：天之大xxxxxxxxxxxxxxxxxxxx</div>
+              </div>
             </WingBlank>
           <WhiteSpace size='md'/>
         </div>
         <WhiteSpace size='md'/>
 
+        <Title title='学科带头人风采' showMore={true} to='/s'/>
+        <div className='bg_fff'>
+            
+        </div>
         {/* 底部状态栏 */}
         <div style={this.state.fullScreen ? { position: 'fixed', height: '50px', width: '100%', bottom: 0 } : { height: 400 }}>
           <TabBar
