@@ -17,6 +17,12 @@ li {
   padding: 0;
   list-style: none;
 }
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
 .clearfix {
   *zoom: 1;
 }

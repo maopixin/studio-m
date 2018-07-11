@@ -19,7 +19,8 @@ export default class institutehome extends Component {
       rankActiveNum:0,
       rankListOne:[{},{},{},{},{}],
       rankListTwo:[{},{},{},{},{}],
-      BlockItemData:[{},{}]
+      BlockItemData:[{},{}],
+      objLeader:[{},{},{},{}]
     };
     this.handleRankTypeClick = this.handleRankTypeClick.bind(this);
   }
@@ -189,8 +190,103 @@ export default class institutehome extends Component {
 
         <Title title='学科带头人风采' showMore={true} to='/s'/>
         <div className='bg_fff'>
-            
+          <WhiteSpace size='md'/>
+            <WingBlank className='clearfix'>
+              {this.state.objLeader.map((val,key)=>{
+                return (
+                  <div className='subject_item box-shadow' key={key}>
+                    <img className={val.src?"":'no_scla'} src={val.src||require('../../common/assets/img/none.png')}/>
+                  </div>
+                )
+              })}
+            </WingBlank>
         </div>
+        <WhiteSpace size='md'/>
+        
+        <Title title='名师工作室' showMore={true} to='/s'/>
+        <div className='bg_fff'>
+          <WhiteSpace size='md'/>
+          <WingBlank className='clearfix'>
+            {this.state.objLeader.map((val,key)=>{
+              return (
+                <div className='studio_item box-shadow' key={key}>
+                  <div>
+                    <img className={val.src?"":'no_scla'} src={val.src||require('../../common/assets/img/none.png')}/>
+                  </div>
+                  <div className='studio_item_info'>
+                    <div className='studio_item_info_title'>张机娘名师工作室</div>
+                    <div className='blue'>学科：高中通用技术</div>
+                    <div className='blue clearfix'>
+                      <span className='fl'>成员：330</span>
+                      <span className='fr' style={{paddingRight:'1em'}}>资源：330</span>
+                    </div>
+                    <div className='ccc'>浏览量：12313213</div>
+                  </div>
+                </div>
+              )
+            })}
+          </WingBlank>
+        </div>
+        <WhiteSpace size='md'/>
+        
+        <Title title='统计'/>
+        <div className='bg_fff'>
+          <WhiteSpace size='md'/>
+          <WingBlank>
+            <Flex wrap='wrap' justify='between'>
+            <div className='statistics'>
+                <div className='statistics_title'>总访问量</div>
+                <div className='num_box'>
+                  <span>1160</span>人
+                </div>
+              </div>
+              <div className='statistics'>
+                <div className='statistics_title'>工作室个数</div>
+                <div className='num_box'>
+                  <span>1160</span>人
+                </div>
+              </div>
+              <div className='statistics'>
+                <div className='statistics_title'>成员数</div>
+                <div className='num_box'>
+                  <span>1160</span>人
+                </div>
+              </div>
+              <div className='statistics'>
+                <div className='statistics_title'>文章数</div>
+                <div className='num_box'>
+                  <span>1160</span>人
+                </div>
+              </div>
+              <div className='statistics'>
+                <div className='statistics_title'>资源数</div>
+                <div className='num_box'>
+                  <span>1160</span>人
+                </div>
+              </div>
+              <div className='statistics'>
+                <div className='statistics_title'>名师课堂</div>
+                <div className='num_box'>
+                  <span>1160</span>人
+                </div>
+              </div>
+              <div className='statistics'>
+                <div className='statistics_title'>主题研修</div>
+                <div className='num_box'>
+                  <span>1160</span>人
+                </div>
+              </div>
+              <div className='statistics'>
+                <div className='statistics_title'>话题</div>
+                <div className='num_box'>
+                  <span>1160</span>人
+                </div>
+              </div>
+            </Flex>
+          </WingBlank>
+        </div>
+        <WhiteSpace size='md'/>
+        <WhiteSpace size='md'/>
         {/* 底部状态栏 */}
         <div style={this.state.fullScreen ? { position: 'fixed', height: '50px', width: '100%', bottom: 0 } : { height: 400 }}>
           <TabBar
