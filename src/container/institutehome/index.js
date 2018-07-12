@@ -255,13 +255,13 @@ export default class institutehome extends Component {
               <div className='statistics'>
                 <div className='statistics_title'>文章数</div>
                 <div className='num_box'>
-                  <span>1160</span>人
+                  <span>1160</span>篇
                 </div>
               </div>
               <div className='statistics'>
                 <div className='statistics_title'>资源数</div>
                 <div className='num_box'>
-                  <span>1160</span>人
+                  <span>1160</span>个
                 </div>
               </div>
               <div className='statistics'>
@@ -279,14 +279,15 @@ export default class institutehome extends Component {
               <div className='statistics'>
                 <div className='statistics_title'>话题</div>
                 <div className='num_box'>
-                  <span>1160</span>人
+                  <span>1160</span>篇
                 </div>
               </div>
             </Flex>
           </WingBlank>
+          <WhiteSpace size='md'/>
+          <WhiteSpace size='md'/>
         </div>
-        <WhiteSpace size='md'/>
-        <WhiteSpace size='md'/>
+        
         {/* 底部状态栏 */}
         <div style={this.state.fullScreen ? { position: 'fixed', height: '50px', width: '100%', bottom: 0 } : { height: 400 }}>
           <TabBar
