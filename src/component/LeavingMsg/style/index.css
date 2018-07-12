@@ -1,0 +1,32 @@
+.leaving_msg {
+  margin-bottom: 10px;
+}
+.leaving_msg .leaving_msg_person {
+  padding: 15px 10;
+  border-bottom: 1px solid #f6f6f6;
+}
+.leaving_msg .leaving_msg_person img {
+  width: 12.5%;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 6vw;
+  display: inline-block;
+  vertical-align: middle;
+}
+.leaving_msg .leaving_msg_person .info {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 10px;
+}
+.leaving_msg .leaving_msg_person .info .time {
+  font-size: 12px;
+  color: #939393;
+}
+.leaving_msg .leaving_msg_body {
+  padding: 15px 10px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #989898;
+}
