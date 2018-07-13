@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { TabBar,WingBlank,Carousel,Flex,WhiteSpace } from 'antd-mobile';
+import {Link} from 'react-router-dom'
 import Title from '../../component/Title/index';
 import Information from '../../component/Information/index';
 import BlockItem from '../../component/BlockItem/index';
@@ -77,7 +78,7 @@ export default class institutehome extends Component {
                 key={key1}
               >
                 <div className='rank_num'>{key*5+key1+1}</div>
-                <div className='studio_name'>工作室名称</div>
+                <Link to='/institute/studio/123' className='studio_name'>工作室名称</Link>
                 <div className='visitor_num'>10</div>
               </li>
             )

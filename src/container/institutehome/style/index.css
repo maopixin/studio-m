@@ -41,6 +41,8 @@ body {
   text-align: center;
 }
 .rank_list .rank_list_box li .studio_name {
+  float: left;
+  color: inherit;
   width: 44%;
 }
 .rank_list .rank_list_box li .visitor_num {
