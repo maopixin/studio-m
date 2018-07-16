@@ -1,0 +1,24 @@
+.lesson_card_item {
+  width: 48%;
+  float: left;
+}
+.lesson_card_item:nth-of-type(2n) {
+  float: right;
+}
+.lesson_card_item .pic_box {
+  height: 32vw;
+}
+.lesson_card_item .pic_box img {
+  height: 100%;
+}
+.lesson_card_item .lesson_card_info {
+  background-color: #f4f5f9;
+  padding: 6px 10px;
+  line-height: 20px;
+}
+.lesson_card_item .lesson_card_info .title {
+  font-size: 14px;
+}
+.lesson_card_item .lesson_card_info .person_info {
+  font-size: 12px;
+}

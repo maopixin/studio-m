@@ -28,6 +28,9 @@ export default class ClassRoom extends Component {
       ]
     }
   }
+  componentDidMount() {
+    this.node.scrollIntoView();
+  }
   renderContent = tab =>
     (
       <div className='bg_fff'>
@@ -48,7 +51,7 @@ export default class ClassRoom extends Component {
   render() {
     let {tabs} = this.state
     return (
-      <div>
+      <div ref={node=>this.node=node}>
           <Tabs tabs={tabs} prerenderingSiblingsNumber={2} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
             {this.renderContent}
           </Tabs>

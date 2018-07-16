@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import {Route } from 'react-router-dom'
-// import NotFoundPage from '../container/NotFoundPage/index'
-import InstituteHome from '../container/institutehome/index'
-import Studio from '../container/Studio/index'
+import asyncComponent from './assets/js/AsyncComponent.js'
 import './assets/style/global.css'
+// import NotFoundPage from '../container/NotFoundPage/index'
+const InstituteHome = asyncComponent(() => import("../container/institutehome/index"));
+const Studio = asyncComponent(() => import("../container/Studio/index"));
+
+
+
 class App extends Component {
-  
   render() {
     return (
       <div>

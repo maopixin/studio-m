@@ -196,7 +196,7 @@ export default class institutehome extends Component {
               {this.state.objLeader.map((val,key)=>{
                 return (
                   <div className='subject_item box-shadow' key={key}>
-                    <img className={val.src?"":'no_scla'} src={val.src||require('../../common/assets/img/none.png')}/>
+                    <img className={val.src?"":'no_scla'} src={val.src||require('../../common/assets/img/none.png')} alt=''/>
                   </div>
                 )
               })}
@@ -212,7 +212,7 @@ export default class institutehome extends Component {
               return (
                 <div className='studio_item box-shadow' key={key}>
                   <div>
-                    <img className={val.src?"":'no_scla'} src={val.src||require('../../common/assets/img/none.png')}/>
+                    <img className={val.src?"":'no_scla'} src={val.src||require('../../common/assets/img/none.png')} alt=''/>
                   </div>
                   <div className='studio_item_info'>
                     <div className='studio_item_info_title'>张机娘名师工作室</div>
@@ -235,7 +235,7 @@ export default class institutehome extends Component {
           <WhiteSpace size='md'/>
           <WingBlank>
             <Flex wrap='wrap' justify='between'>
-            <div className='statistics'>
+              <div className='statistics'>
                 <div className='statistics_title'>总访问量</div>
                 <div className='num_box'>
                   <span>1160</span>人

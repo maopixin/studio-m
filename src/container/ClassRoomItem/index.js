@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './style/index.css'
 import VideoPlayItem from '../../component/VideoPlayItem'
-import {WhiteSpace , WingBlank,Flex,TextareaItem} from 'antd-mobile'
+import {WhiteSpace , WingBlank,Flex} from 'antd-mobile'
 import LeavingMsg from '../../component/LeavingMsg'
 export default class ClassRoomItem extends Component {
   constructor(props){
@@ -22,9 +22,12 @@ export default class ClassRoomItem extends Component {
   handleLeavingBtn(){
     console.log(this.state.value);
   }
+  componentDidMount() {
+    this.node.scrollIntoView();
+  }
   render() {
     return (
-      <div className='class_room_item'>
+      <div className='class_room_item' ref={node=>this.node=node}>
         <div className='class_room_item_video'>
           <VideoPlayItem></VideoPlayItem>
         </div>

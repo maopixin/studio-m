@@ -11,17 +11,18 @@ export default class Information extends Component {
   }
   render() {
     let {typeList} = this.state;
-    let {type,time} = this.props
+    let {type,time,person} = this.props
     return (
-      <div className='bg_fff'>
+      <div className='bg_fff information_box'>
         <WingBlank className='information_item'>
             <div className='information_item_title'>
                 <span className={type}>{'['+typeList[type]+']'}</span>
                 爱词霸英语为广大网友提供在线翻译在线词典、英语口语、英语学习资料、汉语词典,金山词霸下载等服务,致力于为您提供优质权威的在线英语服务,是5000万英语学习者的
                 <span className='clam_line'>...</span>
             </div>
-            <div className='information_item_time'>
-                {time}
+            <div className='information_item_time clearfix'>
+              <div className='fl'>{person}</div>
+              <div className='fr'>{time}</div>
             </div>
         </WingBlank>
       </div>
