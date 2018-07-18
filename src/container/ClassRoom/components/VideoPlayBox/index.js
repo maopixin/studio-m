@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom';
-import VideoPlayItem from '../../../../component/VideoPlayItem/index'
+// import VideoPlayItem from '../../../../component/VideoPlayItem/index'
 import './style/index.css'
 export default withRouter(class VideoPlayBox extends Component {
   constructor(props){
     super(props);
   }
   render() {
-    let {url} = this.props
+    let {url,pic} = this.props
     return (
       <div 
-        className='video_play_box box-shadow'
+        className='video_play_box'
         onClick={()=>{
           this.props.history.push(url)
         }}
       >
         <div className='height_box'>
-            <VideoPlayItem/>
+          <img className={pic?'':'no_scla'} src={pic||require('../../../../common/assets/img/none.png')} alt=''/>
         </div>
         <div className='video_play_box_info bg_body'>
             <div className='title'>标题</div>

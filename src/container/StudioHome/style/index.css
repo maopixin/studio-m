@@ -5,40 +5,40 @@
 .studio_info {
   border-top: 1px solid #fff;
 }
-.studio_info_pic {
+.studio_info .studio_info_pic {
   width: 88px;
   height: 88px;
   border: 8px solid #fff;
   border-radius: 52px;
   margin: -52px auto 0;
 }
-.studio_info_pic img {
+.studio_info .studio_info_pic img {
   width: 100%;
   height: 100%;
   border-radius: 44px;
 }
-.studio_name {
+.studio_info .studio_name {
   font-size: 14px;
   font-weight: 600;
   text-align: center;
   color: #242424;
 }
-.studio_subject {
+.studio_info .studio_subject {
   font-size: 12px;
   line-height: 24px;
   color: #a5a5a5;
   text-align: center;
 }
-.studio_data_num {
+.studio_info .studio_data_num {
   text-align: center;
   line-height: 20px;
   padding: 6px 0;
 }
-.studio_data_num .num {
+.studio_info .studio_data_num .num {
   color: #399bda;
   font-size: 18px;
 }
-.studio_data_num .num_label {
+.studio_info .studio_data_num .num_label {
   color: #b9b9b9;
   font-size: 12px;
 }

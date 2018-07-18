@@ -5,6 +5,7 @@ const StudioHome = asyncComponent(()=> import('../StudioHome/index'))
 const ClassRoom = asyncComponent(()=> import('../ClassRoom/index'))
 const ClassRoomItem = asyncComponent(()=> import('../ClassRoomItem/index'))
 const informationList = asyncComponent(()=> import('../InformationList/index'))
+
 export default class Studio extends Component {
   render() {
     return (

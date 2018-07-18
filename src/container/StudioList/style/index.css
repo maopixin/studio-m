@@ -1,0 +1,39 @@
+.studio_list_page {
+  padding-top: 1.11111111rem;
+  position: relative;
+}
+.check_box {
+  width: 4.27777778rem;
+  height: 0.94444444rem;
+  line-height: 0.94444444rem;
+  position: absolute;
+  text-indent: 1em;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff url('../../../common/assets/img/check.png') no-repeat 3.61111111rem center;
+  background-size: 10px;
+}
+.box1 {
+  top: 0.16666667rem;
+  left: 15px;
+}
+.box2 {
+  top: 0.16666667rem;
+  right: 15px;
+}
+.rank_type_list {
+  text-align: center;
+  font-size: 0.33333333rem;
+  line-height: 1rem;
+}
+.rank_type_list .active {
+  color: #1b9fe2;
+}
+.rank_type_list span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.rank_type_list svg {
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -2,23 +2,30 @@
   width: 48%;
   float: left;
   margin-bottom: 12px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  border-radius: 4px;
 }
 .video_play_box:nth-of-type(2n) {
   float: right;
 }
 .video_play_box .height_box {
-  height: 112px;
+  height: 3.11111111rem;
+}
+.video_play_box .height_box img {
+  height: 100%;
+  width: 100%;
 }
 .video_play_box .video_play_box_info {
-  padding: 8px;
-  line-height: 20px;
+  padding: 0.22222222rem;
+  line-height: 0.55555556rem;
 }
 .video_play_box .video_play_box_info .title {
-  font-size: 14px;
+  font-size: 0.38888889rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .video_play_box .video_play_box_info .name_time {
-  font-size: 12px;
+  font-size: 0.33333333rem;
 }

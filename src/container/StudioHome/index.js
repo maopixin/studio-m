@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom'
 import {Flex,WhiteSpace,Grid,WingBlank} from 'antd-mobile'
 import Title from '../../component/Title'
 import Information from '../../component/Information'
@@ -6,7 +7,7 @@ import Resource from '../../component/Resource'
 import LessonCard from './components/LessonCard'
 import './style/index.css'
 let scrollTop = 0;
-export default class StudioHome extends Component {
+export default withRouter(class StudioHome extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -14,7 +15,7 @@ export default class StudioHome extends Component {
         src:'',
         gridData:[
           {
-            title:'工作室简介',
+            title:'工作室简介', 
             icon:''
           },
           {
@@ -23,7 +24,8 @@ export default class StudioHome extends Component {
           },
           {
             title:'名师课堂',
-            icon:''
+            icon:'',
+            url:`/institute/studio/${this.props.match.params.id}/classroom`
           },
           {
             title:'留言板',
@@ -92,7 +94,9 @@ export default class StudioHome extends Component {
           </Flex>
         </div>
         <WhiteSpace/>
-        <Grid data={data} hasLine={false} />
+        <Grid data={data} hasLine={false} onClick={(el,index)=>{
+          this.props.history.push(gridData[index].url)
+        }}/>
         <WhiteSpace/>
         <Title title='工作室资讯' showMore={true} to={`/institute/studio/${params.id}/information`}/>
         <div className='bg_fff'>
@@ -234,4 +238,4 @@ export default class StudioHome extends Component {
       </div>
     )
   }
-}
+})

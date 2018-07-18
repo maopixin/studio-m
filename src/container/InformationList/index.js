@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Information from './../../component/Information'
+import {PullToRefresh,WhiteSpace} from 'antd-mobile'
 import './style/index.css'
 export default class InformationList extends Component {
   constructor(props){
@@ -10,12 +11,22 @@ export default class InformationList extends Component {
             {},
             {},
             {},
-        ]
+        ],
+        refreshing:false
       }
   }
   render() {
     return (
-      <div>
+      <PullToRefresh
+        direction='up'
+        refreshing={this.state.refreshing}
+        onRefresh={() => {
+          this.setState({ refreshing: true });
+          setTimeout(() => {
+            this.setState({ refreshing: false });
+          }, 2000);
+        }}
+      >
         {
             this.state.list.map((val,key)=>{
                 return (
@@ -23,7 +34,8 @@ export default class InformationList extends Component {
                 )
             })
         }
-      </div>
+        <WhiteSpace size='lg'/>
+      </PullToRefresh>
     )
   }
 }

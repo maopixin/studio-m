@@ -9,10 +9,13 @@
         document.addEventListener('DOMContentLoaded', function() {
           FastClick.attach(document.body);
         }, false);
-      }
+      };
       if(!window.Promise) {
         document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
-      }
+      };
+      var w = document.documentElement.clientWidth / 10;
+      var html = document.getElementsByTagName('html')[0];
+      html.style.fontSize = w + 'px';
     </script>
     <meta name="theme-color" content="#000000">
     <!--

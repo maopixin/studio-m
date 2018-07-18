@@ -1,24 +1,32 @@
+@rem:36rem;
 .video_play_box{
     width: 48%;
     float: left;
     margin-bottom: 12px;
+    border:1px solid #ccc;
+    overflow: hidden;
+    border-radius: 4px;
     &:nth-of-type(2n){
         float: right;
     }
     .height_box{
-        height: 112px;
+        height: 112/@rem;
+        img{
+            height: 100%;
+            width: 100%;
+        }
     }
     .video_play_box_info{
-        padding: 8px;
-        line-height: 20px;
+        padding: 8/@rem;
+        line-height: 20/@rem;
         .title{
-            font-size: 14px;
+            font-size: 14/@rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
         .name_time{
-            font-size: 12px;
+            font-size: 12/@rem;
         }
     }
 }

@@ -39,7 +39,7 @@ export default class ClassRoom extends Component {
           <WhiteSpace size='md'/>
           {this.state.tabs.map((val,key)=>{
             return (
-              <VideoPlayBox 
+              <VideoPlayBox
                 key={key} 
                 url='/institute/studio/00/curriculum/00'
               />
@@ -52,7 +52,7 @@ export default class ClassRoom extends Component {
     let {tabs} = this.state
     return (
       <div ref={node=>this.node=node}>
-          <Tabs tabs={tabs} prerenderingSiblingsNumber={2} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
+          <Tabs tabs={tabs} prerenderingSiblingsNumber={1} renderTabBar={props => <Tabs.DefaultTabBar {...props} page={3} />}>
             {this.renderContent}
           </Tabs>
       </div>
