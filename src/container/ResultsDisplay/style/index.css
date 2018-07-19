@@ -1,0 +1,21 @@
+.result_display_page .result_item {
+  background-color: #fff;
+  font-size: 0.37333333rem;
+}
+.result_display_page .result_item .result_title {
+  line-height: 1.06666667rem;
+  padding: 0 15px;
+  border-bottom: 1px solid #ebebeb;
+  color: #383838;
+  font-weight: 600;
+}
+.result_display_page .result_item .result_info {
+  padding: 0.13333333rem 15px 0.26666667rem;
+}
+.result_display_page .result_item .result_info .result_studio_name {
+  color: #26a4cc;
+  line-height: 0.66666667rem;
+}
+.result_display_page .result_item .result_info .result_state {
+  line-height: 0.66666667rem;
+}

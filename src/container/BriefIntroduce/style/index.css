@@ -1,0 +1,48 @@
+.brief_introduce_page .studio_info {
+  padding: 15px 0.37333333rem;
+  background-color: #fff;
+}
+.brief_introduce_page .pic_box {
+  width: 2.4rem;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+}
+.brief_introduce_page .pic_box img {
+  width: 100%;
+  height: 100%;
+}
+.brief_introduce_page .studio_text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 12px;
+  line-height: 20px;
+  margin-left: 0.56rem;
+  color: #9e9e9e;
+}
+.brief_introduce_page .studio_text span {
+  display: inline-block;
+  vertical-align: top;
+}
+.brief_introduce_page .studio_text .text_label {
+  width: 50px;
+  display: inline-block;
+  text-align: justify;
+  text-align-last: justify;
+}
+.brief_introduce_page .studio_text .text {
+  margin-left: 10px;
+  color: #2d2d2d;
+}
+.brief_introduce_page .text_boxs {
+  padding: 10px 15px;
+}
+.brief_introduce_page .text_boxs p {
+  padding: 6px 0;
+}
+.brief_introduce_page .text_boxs * {
+  color: #a3a3a3 !important;
+  font-size: 12px !important;
+  line-height: 20px !important;
+}

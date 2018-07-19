@@ -1,0 +1,131 @@
+.member_list_page {
+  font-size: 0.32rem;
+}
+.member_list_page .mine_rank {
+  padding: 0.26666667rem 15px;
+  background-color: #fff;
+}
+.member_list_page .mine_rank .fl img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.12rem;
+  height: 1.12rem;
+  margin-right: 0.4rem;
+}
+.member_list_page .mine_rank .fl .mine_info {
+  display: inline-block;
+  vertical-align: middle;
+}
+.member_list_page .mine_rank .fl .mine_info .name {
+  font-size: 0.37333333rem;
+  line-height: 0.58666667rem;
+  color: #696969;
+}
+.member_list_page .mine_rank .fl .mine_info .integral {
+  font-size: 0.32rem;
+  line-height: 0.53333333rem;
+  color: #9f9f9f;
+}
+.member_list_page .mine_rank .fr {
+  color: #1b9fe2;
+}
+.member_list_page .mine_rank .fr .rank_label {
+  font-size: 0.37333333rem;
+  line-height: 0.53333333rem;
+  width: 0.85333333rem;
+  margin-right: 8px;
+}
+.member_list_page .mine_rank .fr .rank_num {
+  font-size: 0.86666667rem;
+  line-height: 1.06666667rem;
+}
+.member_list_page .student_num {
+  text-align: right;
+  font-size: 0.32rem;
+  line-height: 0.93333333rem;
+  padding: 0 15px;
+}
+.member_list_page .student_num span {
+  color: #1b9fe2;
+}
+.member_list_page .role_type {
+  background-color: #e4f3fa;
+  line-height: 0.77333333rem;
+  color: #646965;
+}
+.member_list_page .role_type div {
+  text-align: center;
+}
+.member_list_page .role_type .active {
+  color: #1B9FE2;
+}
+.member_list_page .rank_list_box {
+  background-color: #fff;
+}
+.member_list_page .rank_list_box .li_item {
+  color: #6c6c6c;
+  height: 1.28rem;
+  overflow: hidden;
+  border-bottom: 1px solid #f4f4f4;
+}
+.member_list_page .rank_list_box .li_item .icon {
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+}
+.member_list_page .rank_list_box .li_item:nth-of-type(1) {
+  color: #9b9b9b;
+}
+.member_list_page .rank_list_box .list_box .li_item:nth-of-type(1) {
+  background-color: #f5aeb2;
+  color: #2b2e33;
+}
+.member_list_page .rank_list_box .list_box .li_item:nth-of-type(2) {
+  color: #2b2e33;
+  background-color: #eecd88;
+}
+.member_list_page .rank_list_box .list_box .li_item:nth-of-type(3) {
+  color: #2b2e33;
+  background-color: #95c0e3;
+}
+.member_list_page .rank_list_box .list_box {
+  position: fixed;
+  top: 4.61333333rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: scroll;
+}
+.member_list_page .rank_list_box .li_item div {
+  float: left;
+  text-align: center;
+  line-height: 1.28rem;
+}
+.member_list_page .rank_list_box .rank_num {
+  width: 3.46666667rem;
+}
+.member_list_page .rank_list_box .rank_num span {
+  display: inline-block;
+  vertical-align: top;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+  font-size: 0.48rem;
+  line-height: 1.28rem;
+}
+.member_list_page .rank_list_box .rank_num img {
+  display: inline-block;
+  vertical-align: top;
+  width: 1.06666667rem;
+  height: 1.06666667rem;
+  background-color: #fff;
+  border-radius: 0.56rem;
+  margin: 0.10666667rem 0 0 0.24rem;
+}
+.member_list_page .rank_list_box .name {
+  width: 1.54666667rem;
+}
+.member_list_page .rank_list_box .school {
+  width: 3.04rem;
+}
+.member_list_page .rank_list_box .integral {
+  width: 1.94666667rem;
+}

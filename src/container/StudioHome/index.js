@@ -16,7 +16,8 @@ export default withRouter(class StudioHome extends Component {
         gridData:[
           {
             title:'工作室简介', 
-            icon:''
+            icon:'',
+            url:`/institute/studio/${this.props.match.params.id}/introduce`,
           },
           {
             title:'教学资源',
@@ -25,27 +26,28 @@ export default withRouter(class StudioHome extends Component {
           {
             title:'名师课堂',
             icon:'',
-            url:`/institute/studio/${this.props.match.params.id}/classroom`
+            url:`/institute/studio/${this.props.match.params.id}/classroom`,
           },
           {
             title:'留言板',
-            icon:''
+            icon:'',
           },
           {
             title:'活动案例',
-            icon:''
+            icon:'',
           },
           {
             title:'教师文章',
-            icon:''
+            icon:'',
           },
           {
             title:'最新动态',
-            icon:''
+            icon:'',
           },
           {
             title:'成员排名',
-            icon:''
+            icon:'',
+            url:`/institute/studio/${this.props.match.params.id}/member`,
           },
         ]
       }

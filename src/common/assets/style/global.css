@@ -3,6 +3,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 body {
+  margin: 0;
   background-color: #f5f5f5;
 }
 .bg_fff {
@@ -25,7 +26,9 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+ul {
   margin: 0;
 }
 .fl {
@@ -67,4 +70,11 @@ h6 {
   background: -o-linear-gradient(right, transparent, #fff 55%);
   background: -moz-linear-gradient(right, transparent, #fff 55%);
   background: linear-gradient(to right, transparent, #fff 55%);
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
