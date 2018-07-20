@@ -39,6 +39,7 @@ export default withRouter(class StudioHome extends Component {
           {
             title:'教师文章',
             icon:'',
+            url:`/institute/studio/${this.props.match.params.id}/t_article`,
           },
           {
             title:'最新动态',
@@ -111,7 +112,7 @@ export default withRouter(class StudioHome extends Component {
           }
         </div>
         <WhiteSpace/>
-        <Title title='教学资源' showMore={true} to='/131'/>
+        <Title title='教学资源' showMore={true} to={`/institute/studio/${params.id}/t_resource`}/>
         <div className='bg_fff'>
           {
             [{},{},{},{}].map((val,key)=>{
@@ -122,7 +123,7 @@ export default withRouter(class StudioHome extends Component {
           }
         </div>
         <WhiteSpace/>
-        <Title title='教研活动' showMore={true} to='/131'/>
+        <Title title='教研活动' showMore={true} to={`/institute/studio/${params.id}/research`}/>
         <div className='bg_fff'>
           {
             [{},{},{},{}].map((val,key)=>{

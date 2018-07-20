@@ -1,0 +1,52 @@
+.research_page {
+  font-size: 12px;
+}
+.research_page .type_list_box {
+  padding: 0.32rem 0.4rem;
+}
+.research_page .type_list_box div {
+  background-color: #fff;
+  color: #696969;
+  width: 2.21333333rem;
+  height: 0.66666667rem;
+  line-height: 0.66666667rem;
+  text-align: center;
+  margin-right: 0.29333333rem;
+  border-radius: 0.33333333rem;
+}
+.research_page .type_list_box .active {
+  background-color: #1b9fe2;
+  color: #fff;
+}
+.research_page .activit_item {
+  background-color: #fff;
+}
+.research_page .activit_item .title {
+  margin: 0 15px;
+}
+.research_page .activit_item .title .type {
+  width: 0.56rem;
+  height: 0.45333333rem;
+  color: #fff;
+  font-size: 12px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.research_page .activit_item .title .under_line {
+  background: url('../img/start.png') no-repeat center center;
+  background-size: 120%;
+}
+.research_page .activit_item .title .in_line {
+  background: url('../img/starting.png') no-repeat center center;
+  background-size: 120%;
+}
+.research_page .activit_item .title .all_line {
+  background: url('../img/started.png') no-repeat center center;
+  background-size: 120%;
+}
+.research_page .activit_item .title .state {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 4px;
+  line-height: 0.4rem;
+}
