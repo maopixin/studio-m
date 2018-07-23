@@ -30,7 +30,7 @@ export default class ResourcesTeach extends Component {
                         <div key={key1}>
                             {
                                 [{type:'pdf'},{type:'zip'},{type:'rar'}].map((val,key)=>(
-                                    <div className='resource_item' key={key}>
+                                    <div className='resource_items' key={key}>
                                         <div className='resource_item_info'>
                                             <div className='pic'>
                                                 <img src={eval(val.type)} alt=''/>

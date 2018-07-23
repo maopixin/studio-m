@@ -1,7 +1,7 @@
 .t_resource_page {
   font-size: 12px;
 }
-.t_resource_page .resource_item {
+.t_resource_page .resource_items {
   margin-top: 10px;
 }
 .t_resource_page .resource_item_info {
@@ -23,6 +23,7 @@
   bottom: 0;
 }
 .t_resource_page .resource_item_info .text {
+  width: 7.6rem;
   display: inline-block;
   vertical-align: middle;
 }

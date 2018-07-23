@@ -25,3 +25,8 @@
   height: 30px;
   margin: auto;
 }
+.video_play_item .video_play_item_bg_black .play_icon .icon {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}

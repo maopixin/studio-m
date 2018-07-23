@@ -44,6 +44,7 @@ export default withRouter(class StudioHome extends Component {
           {
             title:'最新动态',
             icon:'',
+            url:`/institute/studio/${this.props.match.params.id}/news`,
           },
           {
             title:'成员排名',

@@ -174,7 +174,7 @@ export default class institutehome extends Component {
         </div>
         <WhiteSpace size='md'/>
 
-        <Title title='每日一课' moreText='往期回顾' showMore={true} to='/s'/>
+        <Title title='每日一课' moreText='往期回顾' showMore={true} to='/institute/home/week'/>
         <div className='bg_fff'>
           <WhiteSpace size='md'/>
             <WingBlank className='clearfix'>

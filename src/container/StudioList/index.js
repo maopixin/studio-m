@@ -1,8 +1,16 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import {Picker,WingBlank,WhiteSpace,Flex,Icon,PullToRefresh} from 'antd-mobile'
 import StudioItem from './components/StudioItem/index'
 import './style/index.css'
 
+// function genData() {
+//   const dataArr = [];
+//   for (let i = 0; i < 20; i++) {
+//     dataArr.push(i);
+//   }
+//   return dataArr;
+// }
 const CustomChildren = props => (
   <div 
     className={'check_box ' + props.className}
@@ -36,6 +44,7 @@ export default class StudioList extends Component {
             value:'二年级'
           },
         ],
+        height: document.documentElement.clientHeight,
         pickerAreaValue:'',
         pickerStudyValue:'',
         rankType:[
@@ -53,6 +62,12 @@ export default class StudioList extends Component {
     this.setState({
       rankTypeChecked:val
     })
+  }
+  componentDidMount() {
+    const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
+    setTimeout(() => this.setState({
+      height: hei
+    }), 0);
   }
   render() {
     let { area ,study ,rankType ,rankTypeChecked } = this.state ;
@@ -99,14 +114,19 @@ export default class StudioList extends Component {
         </Flex>
         <PullToRefresh
           direction='up'
+          style={{
+            height: this.state.height,
+            overflow: 'auto',
+          }}
           refreshing={this.state.refreshing}
+          ref={el => this.ptr = el}
           onRefresh={()=>{
             this.setState({ refreshing: true });
             //获取完数据 改为false；
           }}
         >
           {
-            [{},{}].map((val,key)=>(
+            [{},{},{},{},{},{},{},{},{}].map((val,key)=>(
               <StudioItem key={key}/>
             ))
           }

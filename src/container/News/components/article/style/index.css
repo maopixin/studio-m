@@ -1,0 +1,8 @@
+.news_page .p_text {
+  font-size: 0.24rem;
+  line-height: 0.50666667rem;
+  padding: 0.32rem 0.37333333rem;
+  color: #666666;
+  border-bottom: 1px solid #e1e1e1;
+  text-indent: 2em;
+}

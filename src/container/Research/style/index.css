@@ -20,9 +20,20 @@
 }
 .research_page .activit_item {
   background-color: #fff;
+  margin-top: 8px;
 }
 .research_page .activit_item .title {
-  margin: 0 15px;
+  padding: 0 15px;
+  margin: 6px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-height: 0.72rem;
+  height: 1.44rem;
+  font-size: 0.4rem;
+  border-bottom: 1px solid #e2e2e2;
 }
 .research_page .activit_item .title .type {
   width: 0.56rem;
@@ -31,22 +42,57 @@
   font-size: 12px;
   display: inline-block;
   vertical-align: middle;
+  margin-right: 0.18666667rem;
 }
 .research_page .activit_item .title .under_line {
   background: url('../img/start.png') no-repeat center center;
-  background-size: 120%;
+  background-size: 130%;
 }
 .research_page .activit_item .title .in_line {
   background: url('../img/starting.png') no-repeat center center;
-  background-size: 120%;
+  background-size: 130%;
 }
 .research_page .activit_item .title .all_line {
   background: url('../img/started.png') no-repeat center center;
-  background-size: 120%;
+  background-size: 130%;
 }
 .research_page .activit_item .title .state {
   display: inline-block;
   vertical-align: middle;
   padding: 0 4px;
   line-height: 0.4rem;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 0.18666667rem;
+}
+.research_page .activit_item .title .not_beginning {
+  background-color: #d28453;
+}
+.research_page .activit_info {
+  padding: 0 15px;
+  line-height: 0.45333333rem;
+}
+.research_page .activit_info .info_item {
+  padding: 4px 0;
+}
+.research_page .activit_info .info_item div {
+  float: left;
+}
+.research_page .activit_info .info_item div:nth-of-type(2) {
+  margin: 0 4px;
+}
+.research_page .activit_info .info_item .label {
+  width: 1.36rem;
+  text-align: justify;
+  text-align-last: justify;
+}
+.research_page .activit_info .info_item .text {
+  width: 7.41333333rem;
+}
+.research_page .activit_info .color {
+  color: #1b9fe2;
+}
+.research_page .am-pull-to-refresh-indicator {
+  background-color: #fff;
 }

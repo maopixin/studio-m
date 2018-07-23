@@ -1,0 +1,27 @@
+.week_lesson .week_lesson_item {
+  background-color: #fff;
+  padding: 0.26666667rem 0.37333333rem;
+  margin-bottom: 0.32rem;
+}
+.week_lesson .week_lesson_item .title {
+  font-size: 0.37333333rem;
+  font-weight: 600;
+  line-height: 0.69333333rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.2rem;
+}
+.week_lesson .week_lesson_item .info {
+  font-size: 0.32rem;
+  line-height: 0.56rem;
+  color: #1b9fe2;
+}
+.week_lesson .week_lesson_item .comment {
+  font-size: 0.32rem;
+  line-height: 0.58666667rem;
+  color: #838383;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

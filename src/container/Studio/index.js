@@ -11,6 +11,7 @@ const ResultsDisplay = asyncComponent(()=>import('../ResultsDisplay'))//成果�
 const ResourcesTeach = asyncComponent(()=>import('../ResourcesTeach/'))//教学资源
 const Article = asyncComponent(()=>import('../Article'))//教师文章
 const Research = asyncComponent(()=>import('../Research'))//教研活动
+const News = asyncComponent(()=>import('../News'))//最新动态
 export default class Studio extends Component {
   render() {
     return (
@@ -25,6 +26,7 @@ export default class Studio extends Component {
         <Route path='/institute/studio/:id/t_resource' component={ResourcesTeach}></Route>
         <Route path='/institute/studio/:id/t_article' component={Article}></Route>
         <Route path='/institute/studio/:id/research' component={Research}></Route>
+        <Route path='/institute/studio/:id/news' component={News}></Route>
       </div>
     )
   }
