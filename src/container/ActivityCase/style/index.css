@@ -1,0 +1,118 @@
+.activity_case_page .type {
+  padding: 0.42666667rem 0;
+}
+.activity_case_page .type div {
+  padding: 0 0.74666667rem;
+  height: 0.66666667rem;
+  background-color: #fff;
+  border-radius: 0.33333333rem;
+  color: #6a6a6a;
+  display: block;
+  outline: 0 none;
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.32rem;
+  line-height: 0.66666667rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  white-space: nowrap;
+}
+.activity_case_page .type .active {
+  background-color: #1b9fe2;
+  color: #fff;
+}
+.activity_case_page .not_had_pic {
+  padding: 0.29333333rem 0.37333333rem;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 0.33333333rem;
+}
+.activity_case_page .not_had_pic .now {
+  padding: 0.13333333rem;
+  width: 1.28rem;
+  height: 1.28rem;
+  font-size: 0.48rem;
+  font-weight: 600;
+  line-height: 0.64rem;
+  background-color: #1a9fe2;
+  color: #fff;
+  text-align: center;
+}
+.activity_case_page .not_had_pic .case_info {
+  width: 7.44rem;
+}
+.activity_case_page .not_had_pic .case_info .title {
+  font-size: 0.4rem;
+  font-weight: 600;
+  line-height: 0.66666667rem;
+  margin-top: 0.16rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.activity_case_page .not_had_pic .case_info .info {
+  font-size: 0.32rem;
+  line-height: 0.58666667rem;
+}
+.activity_case_page .not_had_pic .case_info .info div {
+  color: #878787;
+}
+.activity_case_page .not_had_pic .case_info .info div:nth-of-type(1) {
+  color: #1b9fe2;
+}
+.activity_case_page .had_pic_box {
+  padding: 0.29333333rem 0.37333333rem;
+  background-color: #fff;
+  position: relative;
+  margin-bottom: 0.33333333rem;
+}
+.activity_case_page .had_pic_box .pic {
+  height: 3.38666667rem;
+  background-color: #000;
+}
+.activity_case_page .had_pic_box .pic img {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+.activity_case_page .had_pic_box .title {
+  font-size: 0.4rem;
+  font-weight: 600;
+  line-height: 0.66666667rem;
+  margin-top: 0.21333333rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.activity_case_page .had_pic_box .info {
+  font-size: 0.32rem;
+  line-height: 0.58666667rem;
+}
+.activity_case_page .had_pic_box .info div {
+  color: #878787;
+}
+.activity_case_page .had_pic_box .info div:nth-of-type(1) {
+  color: #1b9fe2;
+}
+.activity_case_page .type_box {
+  position: absolute;
+  top: 0.29333333rem;
+  left: 0.37333333rem;
+  width: 0.98666667rem;
+  height: 0.85333333rem;
+}
+.activity_case_page .on_line {
+  background: url('../img/start.png') no-repeat center center;
+  background-size: cover;
+}
+.activity_case_page .not_line {
+  background: url('../img/started.png') no-repeat center center;
+  background-size: cover;
+}
+.activity_case_page .all {
+  background: url('../img/starting.png') no-repeat center center;
+  background-size: cover;
+}

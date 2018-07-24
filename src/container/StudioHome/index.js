@@ -31,10 +31,12 @@ export default withRouter(class StudioHome extends Component {
           {
             title:'留言板',
             icon:'',
+            url:`/institute/studio/${this.props.match.params.id}/leavemsg`,
           },
           {
             title:'活动案例',
             icon:'',
+            url:`/institute/studio/${this.props.match.params.id}/activitycase`,
           },
           {
             title:'教师文章',

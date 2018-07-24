@@ -23,7 +23,7 @@
   margin-top: 8px;
 }
 .research_page .activit_item .title {
-  padding: 0 15px;
+  padding: 0 0.37333333rem;
   margin: 6px 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -61,6 +61,7 @@
   vertical-align: middle;
   padding: 0 4px;
   line-height: 0.4rem;
+  height: 0.4rem;
   color: #fff;
   border-radius: 4px;
   font-size: 12px;
@@ -70,7 +71,7 @@
   background-color: #d28453;
 }
 .research_page .activit_info {
-  padding: 0 15px;
+  padding: 0 0.37333333rem;
   line-height: 0.45333333rem;
 }
 .research_page .activit_info .info_item {

@@ -189,7 +189,7 @@ export default class institutehome extends Component {
         </div>
         <WhiteSpace size='md'/>
 
-        <Title title='学科带头人风采' showMore={true} to='/s'/>
+        <Title title='学科带头人风采' showMore={true} to='/institute/home/leader'/>
         <div className='bg_fff'>
           <WhiteSpace size='md'/>
             <WingBlank className='clearfix'>

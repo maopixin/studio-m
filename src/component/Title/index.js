@@ -8,6 +8,8 @@ export default class Title extends Component {
     let more;
     if(showMore){
       more=(<Link to={to} className='more'>{moreText||'更多'}</Link>)
+    }else{
+      more=moreText
     }
     return (
       <div className='common_title'>
