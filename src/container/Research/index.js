@@ -1,36 +1,87 @@
 import React, { Component } from 'react'
 import ReactDOM from "react-dom";
-import {PullToRefresh} from 'antd-mobile'
-import './style/index.css'
+import {PullToRefresh,Icon} from 'antd-mobile';
+import {getActivityList,joinActivity} from '../../api/index'
+import './style/index.css';
 
 export default class Research extends Component {
   constructor(props){
       super(props);
       this.state = {
+        goingList:[],
+        notBeginningList:[],
+        overList:[],
         typeList:[
-            '线上',
-            '线下',
-            '综合'
+            {
+                title:'进行中',
+                type:'goingList',
+                firstLoading:true,
+                process_status:1,
+                page:1
+            },
+            {
+                title:'未开始',
+                type:'notBeginningList',
+                firstLoading:false,
+                process_status:0,
+                page:1
+            },
+            {
+                title:'已结束',
+                type:'overList',
+                firstLoading:false,
+                process_status:2,
+                page:1
+            },
         ],
-        type:{
-            under_line:'线下',
-            in_line:'线上',
-            all_line:'综合',
+        lineType:{
+            '线下':'under_line',
+            '线上':'in_line',
+            '综合':'all_line',
         },
-        active:'线上',
+        timeType:{
+            '1':'not_beginning',
+            '2':'going',
+            '3':'over'
+        },
+        active:0,
         refreshing:false,
         height: document.documentElement.clientHeight,
+        pre_page:1,
+        firstLoading:true
       }
       
   }
   componentDidMount() {
+    getActivityList({
+        page: 1,
+        pre_page: this.state.pre_page,
+        process_status:1
+    }).then(data=>{
+        console.log(data)
+        if(data.status.code==0){
+            this.setState({
+                goingList:data.data.list,
+                firstLoading:false
+            })
+        }else{
+            this.setState({
+                firstLoading:false
+            })
+        }
+        
+    });
     const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
     setTimeout(() => this.setState({
       height: hei,
     }), 0);
   }
   render() {
-    let {active} = this.state
+    let {
+        active,
+        lineType,
+        typeList
+    } = this.state
     return (
       <div className='research_page'>
         <div className='type_list_box clearfix'>
@@ -39,14 +90,35 @@ export default class Research extends Component {
                     return (
                         <div 
                             key = {key}
-                            className = {active===val?"active fl":'fl'}
+                            className = {active===key?"active fl":'fl'}
                             onClick = {()=>{
-                                this.setState({
-                                    active:val
-                                })
+                                if(active===key){
+                                    return false
+                                };
+                                if(!val.firstLoading){
+                                    let data = this.state.typeList;
+                                    data[active].firstLoading = true;
+                                    this.setState({
+                                        active:key,
+                                        typeList:data
+                                    })
+                                    getActivityList({
+                                        page: 1,
+                                        pre_page: this.state.pre_page,
+                                        process_status: val.process_status
+                                    }).then(data=>{
+                                        this.setState({
+                                            [val.type]:data.data.list,
+                                        })
+                                    });
+                                }else{
+                                    this.setState({
+                                        active:key
+                                    })
+                                }
                             }}
                         >
-                            {val}
+                            {val.title}
                         </div>
                     )
                 })
@@ -64,47 +136,55 @@ export default class Research extends Component {
                 this.setState({
                     refreshing:true
                 })
-
-                setTimeout(()=>{
+                getActivityList({
+                    page: typeList[active].page+1,
+                    pre_page: this.state.pre_page,
+                    process_status: typeList[active].process_status
+                }).then(data=>{
                     this.setState({
+                        [typeList[active].type]:[...this.state[typeList[active].type],...data.data.list],
                         refreshing:false
                     })
-                },2000)
+                });
             }}
         >
             {
-                [{type:'under_line'},{type:'in_line'},{type:'all_line'},{type:'all_line'}].map((val,key)=>{
+                this.state.firstLoading
+                ?
+                <div style={{textAlign:'center',paddingTop:'20px'}}><Icon type='loading' /></div>
+                :
+                this.state[typeList[active].type].map((val,key)=>{
                     return (
                         <div className='activit_item' key={key}>
                             <div className='title'>
-                                <span className={'type '+ val.type}>
+                                <span className={'type '+ lineType[val.type_text]}>
                                     
                                 </span>
                                 <span className='state not_beginning'>
-                                    未开始
+                                    {val.process_status_text}
                                 </span>
-                                我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题
+                                {val.title}
                             </div>
                             <div className='activit_info'>
                                 <div className='info_item clearfix'>
                                     <div className='label'>创建者</div>
                                     <div>:</div>
-                                    <div className='text'>曲文瑞</div>
+                                    <div className='text'>{val.creator_name}</div>
                                 </div>
                                 <div className='info_item clearfix color'>
                                     <div className='label'>起止时间</div>
                                     <div>:</div>
-                                    <div className='text'>2018-06-21 00：50治2018-06-22 00：50</div>
+                                    <div className='text'>{val.start_time} 至 {val.stop_time}</div>
                                 </div>
                                 <div className='info_item clearfix'>
                                     <div className='label'>活动描述</div>
                                     <div>:</div>
-                                    <div className='text'>奥术大师多奥术大师多奥术大师多奥术大师多奥术大师多奥术大师多奥术大师多奥术大师多奥术大师多</div>
+                                    <div className='text'>{val.direction}</div>
                                 </div>
                                 <div className='info_item clearfix color'>
                                     <div className='label'>参与人数</div>
                                     <div>:</div>
-                                    <div className='text'>59人</div>
+                                    <div className='text'>{val.partner_cnt}人</div>
                                 </div>
                             </div>
                         </div>
