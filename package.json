@@ -16,6 +16,7 @@
     "react-svg": "^4.1.6",
     "whatwg-fetch": "^2.0.4"
   },
+  "proxy":"http://institute.dljy.lzdev",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",

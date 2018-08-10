@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Flex,PullToRefresh,WhiteSpace} from 'antd-mobile'
 import './style/index.css'
 import './svg/iconfont'
-
+import {getUserInfo,followPerson} from '../../api/index'
 export default class MemberList extends Component {
   constructor(props){
       super(props);
@@ -12,7 +12,6 @@ export default class MemberList extends Component {
           roleTypeActive:'全部',
           medalList:['#icon-jinpai','#icon-yinpai','#icon-tongpai'],
           refreshing:false
-          
       }
       this.roleTypeHandleClick = this.roleTypeHandleClick.bind(this);
   }
@@ -20,6 +19,11 @@ export default class MemberList extends Component {
       this.setState({
         roleTypeActive:val
       })
+  }
+  componentDidMount(){
+    followPerson({follow_user_id:5}).then(data=>{
+        console.log(data)
+    })
   }
   
   render() {
@@ -41,7 +45,7 @@ export default class MemberList extends Component {
             </div>
         </div>
         <div className='student_num'>
-            共<span>123123</span>位学员
+            共<span>0</span>位学员
         </div>
         <Flex className='role_type' justify='around'>
             {

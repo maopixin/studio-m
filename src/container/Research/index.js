@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from "react-dom";
-import {PullToRefresh,Icon} from 'antd-mobile';
+import {PullToRefresh,Icon,Toast} from 'antd-mobile';
 import {getActivityList,joinActivity} from '../../api/index'
 import './style/index.css';
 
@@ -96,7 +96,7 @@ export default class Research extends Component {
                                     return false
                                 };
                                 if(!val.firstLoading){
-                                    let data = this.state.typeList;
+                                    let data = typeList;
                                     data[active].firstLoading = true;
                                     this.setState({
                                         active:key,
@@ -141,10 +141,23 @@ export default class Research extends Component {
                     pre_page: this.state.pre_page,
                     process_status: typeList[active].process_status
                 }).then(data=>{
-                    this.setState({
-                        [typeList[active].type]:[...this.state[typeList[active].type],...data.data.list],
-                        refreshing:false
-                    })
+                    if(data.status.code==0){
+                        console.log(data)
+                        if(data.data.total_page <= typeList[active].page){
+                            this.setState({
+                                refreshing:false,
+                            })
+                            Toast.info('暂无更多',2);
+                        }else{
+                            let obj = typeList;
+                            obj[active].page += 1;
+                            this.setState({
+                                [typeList[active].type]:[...this.state[typeList[active].type],...data.data.list],
+                                refreshing:false,
+                                typeList:obj
+                            })
+                        }
+                    }
                 });
             }}
         >
