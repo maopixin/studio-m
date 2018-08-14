@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
+import {getStudioData, getStudioDetail, getStudioLatest, getActivityList ,getStuidoMembers ,getStudioState} from '../../api/index';
 import {Flex,WhiteSpace,Grid,WingBlank} from 'antd-mobile'
 import Title from '../../component/Title'
 import Information from '../../component/Information'
@@ -53,16 +54,168 @@ export default withRouter(class StudioHome extends Component {
             icon:'',
             url:`/institute/studio/${this.props.match.params.id}/member`,
           },
-        ]
-      }
+        ],
+      },
+      studioState:{
+        l:false,
+        data:{
+          visitors:[]
+        },
+        fail:false
+      },
+      information:{
+        l:false,
+        list:[],
+        fail:false
+      },
+      teachingResources:{
+        l:false,
+        list:[],
+        fail:false
+      },
+      activity:{
+        l:false,
+        list:[],
+        fail:false
+      },
+      achievements:{
+        l:false,
+        list:[],
+        fail:false
+      },
     }
   }
   componentDidMount() {
+    this.getFirstScreen()
     if (this.node) {
       this.node.scrollTop = scrollTop
     }
   }
+  getFirstScreen(){
+    getStudioState({
+      id:this.props.match.params.id
+    }).then(data=>{
+        console.log(data,'工作室状态');
+        let obj = this.state.studioState;
+        obj.l = true;
+        if(data.status.code==0){
+          obj.data = data.data;
+          obj.data.visitors = obj.data.visitors.slice(0,4);
+        }else{
+          obj.fail = true;
+        }
+        this.setState({
+          studioState:obj
+        })
+    }).catch(error=>{
+      let obj = this.state.studioState;
+      obj.l = true;
+      obj.fail = true;
+      this.setState({
+        studioState:obj
+      })
+    });
+    getStudioData({
+      id:this.props.match.params.id,
+      category_type_name:'资讯',
+      pre_page:3,
+    }).then(data=>{
+      console.log(data,'资讯');
+      let obj = this.state.information;
+      obj.l = true;
+      if(data.status.code==0){
+          obj.list = data.data.list
+      }else{
+          obj.fail = true;
+      };
+      this.setState({
+        information:obj
+      });
+    }).catch(error=>{
+      let obj = this.state.information;
+      obj.l = true;
+      obj.fail = true;
+      this.setState({
+        information:obj
+      });
+    });
+    getStudioData({
+      id:this.props.match.params.id,
+      category_type_name:'教学资源',
+      pre_page:4,
+    }).then(data=>{
+      console.log(data,'教学资源');
+      let obj = this.state.teachingResources;
+      obj.l = true;
+      if(data.status.code==0){
+          obj.list = data.data.list
+      }else{
+          obj.fail = true;
+      };
+      this.setState({
+        teachingResources:obj
+      });
+    }).catch(error=>{
+      let obj = this.state.teachingResources;
+      obj.l = true;
+      obj.fail = true;
+      this.setState({
+        teachingResources:obj
+      });
+    });
 
+    // 教研活动
+    getActivityList({
+        studio_id:this.props.match.params.id,
+        pre_page:5
+    }).then(data=>{
+        console.log(data,'教研活动');
+        let obj = this.state.activity;
+        obj.l = true;
+        if(data.status.code==0){
+          obj.list = data.data.list
+        }else{
+          obj.fail = true;
+        };
+        this.setState({
+          activity:obj
+        });
+    }).catch(error=>{
+      let obj = this.state.activity;
+      obj.fail = true;
+      obj.l = true;
+      this.setState({
+        activity:obj
+      });
+    });
+    // 名师课堂
+    getStudioData({
+      id:this.props.match.params.id,
+      category_type_name:'名师课堂',
+      pre_page:2,
+      require_media:1
+    }).then(data=>{
+        console.log(data,'名师课堂');
+        let obj = this.state.achievements;
+        obj.l = true;
+        if(data.status.code==0){
+          obj.list = data.data.list
+        }else{
+          obj.fail = true;
+        };
+        this.setState({
+          achievements:obj
+        });
+    }).catch(error=>{
+      let obj = this.state.achievements;
+      obj.l = true;
+      obj.fail = true;
+      this.setState({
+        achievements:obj
+      });
+    })
+
+  }
   componentWillUnmount() {
     if (this.node) {
       scrollTop = this.node.scrollTop
@@ -70,6 +223,7 @@ export default withRouter(class StudioHome extends Component {
   }
   render() {
     let {src,gridData} = this.state.data;
+    let sDate = this.state.studioState.data
     const data = gridData.map((val, i) => ({
       icon: require('./img/grid'+(i+1)+'.png'),
       text: val.title,
@@ -86,15 +240,15 @@ export default withRouter(class StudioHome extends Component {
           <div className='studio_subject'>高中数学</div>
           <Flex className='studio_data_num'>
             <Flex.Item>
-              <div className='num'>2222</div>
+              <div className='num'>{sDate.yesterday_added}</div>
               <div className='num_label'>昨日新增</div>
             </Flex.Item>
             <Flex.Item>
-              <div className='num'>2222</div>
+              <div className='num'>{sDate.year_active}</div>
               <div className='num_label'>年活跃度</div>
             </Flex.Item>
             <Flex.Item>
-              <div className='num'>2222</div>
+              <div className='num'>{sDate.rank}</div>
               <div className='num_label'>排名</div>
             </Flex.Item>
           </Flex>
@@ -107,9 +261,9 @@ export default withRouter(class StudioHome extends Component {
         <Title title='工作室资讯' showMore={true} to={`/institute/studio/${params.id}/information`}/>
         <div className='bg_fff'>
           {
-            [{},{},{}].map((val,key)=>{
+            this.state.information.list.map((val,key)=>{
               return (
-                <Information type='notice' time='2018-12-20' key={key}/>
+                <Information type='notice' info={val} time={val.utime.y+'-'+val.utime.m+'-'+val.utime.d} key={key}/>
               )
             })
           }
@@ -118,9 +272,9 @@ export default withRouter(class StudioHome extends Component {
         <Title title='教学资源' showMore={true} to={`/institute/studio/${params.id}/t_resource`}/>
         <div className='bg_fff'>
           {
-            [{},{},{},{}].map((val,key)=>{
+            this.state.teachingResources.list.map((val,key)=>{
               return (
-                <Resource itemData={{type:'高考资源'}} key={key}/>
+                <Resource itemData={val} key={key}/>
               )
             })
           }
@@ -129,9 +283,9 @@ export default withRouter(class StudioHome extends Component {
         <Title title='教研活动' showMore={true} to={`/institute/studio/${params.id}/research`}/>
         <div className='bg_fff'>
           {
-            [{},{},{},{}].map((val,key)=>{
+            this.state.activity.list.map((val,key)=>{
               return (
-                <Resource itemData={{type:'活动类型',state:'before'}} key={key}/>
+                <Resource itemData={val} key={key}/>
               )
             })
           }
@@ -142,9 +296,9 @@ export default withRouter(class StudioHome extends Component {
           <WhiteSpace size='lg'/>
           <WingBlank className='clearfix'>
             {
-              [{},{}].map((val,key)=>{
+              this.state.achievements.list.map((val)=>{
                 return (
-                  <LessonCard dataItem={{}} key={key}/>
+                  <LessonCard dataItem={val} key={val.id}/>
                 )
               })
             }
@@ -159,43 +313,43 @@ export default withRouter(class StudioHome extends Component {
             <div className='statistics'>
               <div className='statistics_title'>成员数</div>
               <div className='num_box'>
-                <span>1160</span>人
+                <span>{sDate.member_count}</span>
               </div>
             </div>
             <div className='statistics'>
               <div className='statistics_title'>文章数</div>
               <div className='num_box'>
-                <span>1160</span>人
+                <span>{sDate.article_count}</span>
               </div>
             </div>
             <div className='statistics'>
               <div className='statistics_title'>资源数</div>
               <div className='num_box'>
-                <span>1160</span>人
+                <span>{sDate.resource_count}</span>
               </div>
             </div>
             <div className='statistics'>
               <div className='statistics_title'>名师课堂数</div>
               <div className='num_box'>
-                <span>1160</span>人
+                <span>{sDate.course_count}</span>
               </div>
             </div>
             <div className='statistics'>
               <div className='statistics_title'>教研活动数</div>
               <div className='num_box'>
-                <span>1160</span>人
+                <span>{sDate.activity_count}</span>
               </div>
             </div>
             <div className='statistics'>
               <div className='statistics_title'>话题数</div>
               <div className='num_box'>
-                <span>1160</span>人
+                <span>{sDate.rank}</span>
               </div>
             </div>
             <div className='statistics'>
               <div className='statistics_title'>总活跃度</div>
               <div className='num_box'>
-                <span>1160</span>人
+                <span>{sDate.activity}</span>
               </div>
             </div>
           </WingBlank>
@@ -207,14 +361,14 @@ export default withRouter(class StudioHome extends Component {
           <WhiteSpace size='lg'/>
           <Flex justify='around'>
             {
-              [{},{},{},{}].map((val,key)=>{
+             sDate.visitors.map((val,key)=>{
                 return (
                   <div className='visitor_item' key={key}>
                     <div className='pic_box'>
                       <img src={val.src||require('../../common/assets/img/none.png')} alt=''/>
                     </div>
-                    <div className='person'>胡剑锋</div>
-                    <div className='time'>刚刚</div>
+                    <div className='person'>{val.nickname}</div>
+                    <div className='time'>{val.time_ago}</div>
                   </div>
                 )
               })
@@ -227,7 +381,7 @@ export default withRouter(class StudioHome extends Component {
                 今日访问量
               </div>
               <div className='visite_num'>
-                200000
+                {sDate.today_pv}
               </div>
             </div>
             <div className='visite_num_item'>
@@ -235,7 +389,7 @@ export default withRouter(class StudioHome extends Component {
                 访问总量
               </div>
               <div className='visite_num'>
-                200000
+                {sDate.total_pv}
               </div>
             </div>
           </Flex>

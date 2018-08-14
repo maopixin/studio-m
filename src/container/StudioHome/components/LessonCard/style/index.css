@@ -18,7 +18,15 @@
 }
 .lesson_card_item .lesson_card_info .title {
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .lesson_card_item .lesson_card_info .person_info {
   font-size: 12px;
+}
+.lesson_card_item .lesson_card_info .person_info span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -12,23 +12,24 @@ export default class Resource extends Component {
       }
   }
   render() {
-    let {stateBox} = this.state
-    let {itemData} = this.props
+    let {stateBox} = this.state;
+    let {itemData} = this.props;
+    let {y,m,d} = itemData.utime;
     return (
       <div className='resource_item clearfix'>
         <div className='fl resource_left'>
             <div className='resource_item_type'>
-                [{itemData.type}]
+                [{itemData.category_name}]
             </div>
             <div className={'resource_item_state ' + itemData.state}>
                 {stateBox[itemData.state]}
             </div>
         </div>
         <div className='fl resource_right'>
-            <h4>名师工作室之xxxx</h4>
+            <h4>{itemData.title}</h4>
             <div className='clearfix'>
-                <div className='fl'>曲文瑞</div>
-                <div className='fr'>2018-12-12</div>
+                <div className='fl'>{itemData.username}</div>
+                <div className='fr'>{y+'-'+m+'-'+d}</div>
             </div>
         </div>
       </div>

@@ -1,21 +1,21 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
-axios.interceptors.request.use(
-    config => {
-        return config;
-    },
-    err => {
-        return Promise.reject(err);
-    });
+// axios.interceptors.request.use(
+//     config => {
+//         return config;
+//     },
+//     err => {
+//         return Promise.reject(err);
+//     });
 
-// http response 服务器响应拦截器，这里拦截401错误，并重新跳入登页重新获取token
-axios.interceptors.response.use(
-    response => {
-        return response;
-    },
-    error => {
-        return Promise.reject(error.response.data) 
-    });
+// // http response 服务器响应拦截器，这里拦截401错误，并重新跳入登页重新获取token
+// axios.interceptors.response.use(
+//     response => {
+//         return response;
+//     },
+//     error => {
+//         return Promise.reject(error.response.data) 
+//     });
 
 // const domin = http://institute.dljy.com/studio/api/page_list
 // 获取研究院下所有工作室列表：institute_id: int [必传]page: int [必传] pre_page: int
@@ -136,5 +136,14 @@ export function getStudioData(payload){
         params:payload
     }).then(data=>{
         return data.data
+    })
+}
+
+// 获取工作室状态信息
+export function getStudioState(payload){
+    return axios.get('/api/Imitation/data',{
+        params:payload
+    }).then(data=>{
+        return data.data;
     })
 }
