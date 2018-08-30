@@ -78,3 +78,12 @@ ul {
   fill: currentColor;
   overflow: hidden;
 }
+.tj {
+  text-align: justify;
+  text-align-last: justify;
+}
+.tj:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}

@@ -14,6 +14,7 @@ const Research = asyncComponent(()=>import('../Research'))//教研活动
 const News = asyncComponent(()=>import('../News'))//最新动态
 const ActivityCase = asyncComponent(()=>import('../ActivityCase'))//活动案例
 const LeaveMsg = asyncComponent(()=>import('../LeaveMsg'))//留言板
+const ResearchPage = asyncComponent(()=>import('../ResearchPage'))
 export default class Studio extends Component {
   render() {
     return (
@@ -27,7 +28,8 @@ export default class Studio extends Component {
         <Route path='/institute/studio/:id/results' component={ResultsDisplay}></Route>
         <Route path='/institute/studio/:id/t_resource' component={ResourcesTeach}></Route>
         <Route path='/institute/studio/:id/t_article' component={Article}></Route>
-        <Route path='/institute/studio/:id/research' component={Research}></Route>
+        <Route path='/institute/studio/:id/research/:rid' component={ResearchPage}></Route>
+        <Route path='/institute/studio/:id/research' exact component={Research}></Route>
         <Route path='/institute/studio/:id/news' component={News}></Route>
         <Route path='/institute/studio/:id/activitycase' component={ActivityCase}></Route>
         <Route path='/institute/studio/:id/leavemsg' component={LeaveMsg}></Route>

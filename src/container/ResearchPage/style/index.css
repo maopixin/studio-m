@@ -1,0 +1,85 @@
+.research_page {
+  font-size: 0.2667rem;
+}
+.research_page .r_page_info {
+  padding: 0.32rem 0.4rem 0.2667rem;
+  background-color: #fff;
+}
+.research_page .r_page_info .pic_box {
+  width: 9.2rem;
+  height: 4.4rem;
+  border-radius: 0.1333rem;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.research_page .r_page_info .pic_box img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 9.2rem;
+  min-height: 4.4rem;
+  transform: translate(-50%, -50%);
+}
+.research_page .r_page_info .pic_box span {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.research_page .r_page_info .pic_box .on_line {
+  background-image: url('../img/on_line@2x.png');
+}
+.research_page .r_page_info .pic_box .all {
+  background-image: url('../img/all@2x.png');
+}
+.research_page .r_page_info .r-title {
+  font-size: 0.36rem;
+  line-height: 0.9733rem;
+  padding-top: 0.0933rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #1b9fe2;
+  border-bottom: 1px solid #ececec;
+  border-bottom: 0.0133rem solid #ececec;
+}
+.research_page .r_page_info .r-info-list {
+  padding-top: 0.1867rem;
+  font-size: 0.2933rem;
+  line-height: 0.5333rem;
+}
+.research_page .r_page_info .r-info-list .label {
+  width: 1.6267rem;
+  height: 0.5333rem;
+  color: #606060;
+}
+.research_page .r_page_info .r-info-list .r-content {
+  width: 7.1067rem;
+  color: #323232;
+}
+.research_page .r_page_info .r-info-list .blue {
+  color: #1b9fe2;
+}
+.research_page .r-notice {
+  margin-top: 0.2667rem;
+  background-color: #fff;
+}
+.research_page .r-notice .notice-list {
+  padding: 0.4533rem 0.4rem 0;
+  font-size: 0.3467rem;
+  line-height: 0.5067rem;
+}
+.research_page .r-notice .notice-list li {
+  margin-bottom: 0.3067rem;
+}
+.research_page .r-notice .notice-list .label {
+  width: 1.4933rem;
+}
+.research_page .r-notice .notice-list .content {
+  width: 7.2267rem;
+}
+.research_page .r-notice .notice-list .blue {
+  color: #1b9fe2;
+}
