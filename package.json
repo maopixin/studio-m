@@ -14,7 +14,7 @@
     "react-scripts": "1.1.4",
     "react-svg": "^4.1.6"
   },
-  "proxy": "http://institute.dljy.lzdev",
+  "proxy": "http://gzs.dljy.com",
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",

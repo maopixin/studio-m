@@ -1,12 +1,13 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
-// axios.interceptors.request.use(
-//     config => {
-//         return config;
-//     },
-//     err => {
-//         return Promise.reject(err);
-//     });
+axios.interceptors.request.use(
+    config => {
+        config.headers['X-Requested-With'] = 'XMLHttpRequest';
+        return config;
+    },
+    err => {
+        return Promise.reject(err);
+    });
 
 // // http response 服务器响应拦截器，这里拦截401错误，并重新跳入登页重新获取token
 // axios.interceptors.response.use(
@@ -18,6 +19,9 @@ axios.defaults.withCredentials = true;
 //     });
 
 // const domin = http://institute.dljy.com/studio/api/page_list
+function HandelError(code){
+    
+}
 // 获取研究院下所有工作室列表：institute_id: int [必传]page: int [必传] pre_page: int
 export function getStudioList(payload){
     return axios.get('/studio/api/page_list',{
@@ -28,6 +32,17 @@ export function getStudioList(payload){
         console.log(error)
     })
 };
+// http://institute.dljy.lzdev/api/index/index?studio=1
+// 获取首页所有内容
+
+export function getStudioAllInfo(payload){
+    return axios.get('/api/index/index',{
+        params:payload
+    }).then(data=>{
+        return data.data
+    })
+};
+
 // 获取研究院/工作室最新动态列表
 // 研究院URL：http://institute.dljy.com/source/api/institute_latest
 // 工作室URL：http://institute.dljy.com/source/api/studio_latest
@@ -41,7 +56,7 @@ export function getStudioLatest(payload){
     })
 }
 export function getInstituteLatest(payload){
-    return axios.get('/source/api/institute_latest',{
+    return axios.get('/source/api/institute_latest',{   
         params:payload
     }).then(data=>{
         return data.data
@@ -65,6 +80,14 @@ export function getActivityList(payload){
 // 参加活动
 export function joinActivity(payload){
     return axios.post('/api/activity_auth/join',payload).then(data=>{
+        return data.data;
+    }).catch(error=>{
+        return error;
+    })
+}
+// 取消参加活动
+export function quitActivity(payload){
+    return axios.post('/api/activity_auth/quit',payload).then(data=>{
         return data.data;
     }).catch(error=>{
         return error;
@@ -104,7 +127,7 @@ export function followPerson(payload){
 }
 // 取消关注
 export function followCancel(payload){
-    return axios.post('/api/follow/concel',payload).then(data=>{
+    return axios.post('/api/follow/cancel',payload).then(data=>{
         return data.data
     }).catch(error=>{
         console.log(error)
@@ -113,7 +136,10 @@ export function followCancel(payload){
 // 获取用户信息
 export function getUserInfo(payload){
     return axios.get('/api/user/info',{
-        params:payload
+        params:payload,
+        headers:{
+            isAjax: true
+        }
     }).then(data=>{
         return data.data
     }).catch(error=>{
@@ -123,7 +149,7 @@ export function getUserInfo(payload){
 
 // 获取研究院/工作室下所有栏目
 export function getCategory(payload){
-    return axios.get('/api/category/page_list',{
+    return axios.get('/api/index/nav',{
         params:payload
     }).then(data=>{
         return data.data
@@ -142,6 +168,55 @@ export function getStudioData(payload){
 // 获取工作室状态信息
 export function getStudioState(payload){
     return axios.get('/api/Imitation/data',{
+        params:payload
+    }).then(data=>{
+        return data.data;
+    })
+}
+// 获取工作室数据
+export function getStudioObj(payload){
+    return axios.get('/api/index/more',{
+        params:payload
+    }).then(data=>{
+        return data.data;
+    })
+}
+// 获取活动详情
+export function getActivityDetail(payload){
+    return axios.get('/activity/api/detail',{
+        params:payload
+    }).then(data=>{
+        return data.data;
+    })
+}
+// 获取已参与活动
+export function getUserJoined(){
+    return axios.get('/api/activity_auth/user_joined').then(data=>{
+        return data.data;
+    })
+}
+// 添加评论
+export function activityUserComment(payload){
+    return axios.post('/api/activityUserComment/create',payload).then(data=>{
+        return data.data;
+    })
+}
+// 添加评价
+export function activitiyUserAppraisal(payload){
+    return axios.post('/api/activityUserAppraisal/create',payload).then(data=>{
+        return data.data;
+    })
+}
+// 获取更多课程
+export function getLessonMore(payload){
+    return axios.get('/api/schoolRoom/more',{
+        params:payload
+    }).then(data=>{
+        return data.data;
+    })
+} 
+export function getLessonIndex(payload){
+    return axios.get('/api/schoolRoom/index',{
         params:payload
     }).then(data=>{
         return data.data;

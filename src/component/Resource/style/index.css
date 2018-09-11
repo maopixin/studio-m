@@ -47,6 +47,10 @@
 .resource_item .resource_right h4 {
   color: #1b9fe2;
   line-height: 26px;
+  height: 26px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .resource_item .resource_right .clearfix {
   line-height: 18px;

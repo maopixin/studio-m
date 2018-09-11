@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom'
-import {getStudioData, getStudioDetail, getStudioLatest, getActivityList ,getStuidoMembers ,getStudioState} from '../../api/index';
+import {getStudioData, getStudioDetail, getStudioLatest, getActivityList ,getStuidoMembers ,getStudioState ,getStudioAllInfo} from '../../api/index';
 import {Flex,WhiteSpace,Grid,WingBlank} from 'antd-mobile'
 import Title from '../../component/Title'
 import Information from '../../component/Information'
@@ -83,10 +83,17 @@ export default withRouter(class StudioHome extends Component {
         list:[],
         fail:false
       },
+      loading:false,
+      sdtudInfo:{
+        user:{
+
+        }
+      }
     }
   }
   componentDidMount() {
-    this.getFirstScreen()
+    this.getFirstScreen();
+    this.firstLoading();
     if (this.node) {
       this.node.scrollTop = scrollTop
     }
@@ -115,107 +122,37 @@ export default withRouter(class StudioHome extends Component {
         studioState:obj
       })
     });
-    getStudioData({
-      id:this.props.match.params.id,
-      category_type_name:'资讯',
-      pre_page:3,
-    }).then(data=>{
-      console.log(data,'资讯');
-      let obj = this.state.information;
-      obj.l = true;
-      if(data.status.code==0){
-          obj.list = data.data.list
-      }else{
-          obj.fail = true;
-      };
-      this.setState({
-        information:obj
-      });
-    }).catch(error=>{
-      let obj = this.state.information;
-      obj.l = true;
-      obj.fail = true;
-      this.setState({
-        information:obj
-      });
-    });
-    getStudioData({
-      id:this.props.match.params.id,
-      category_type_name:'教学资源',
-      pre_page:4,
-    }).then(data=>{
-      console.log(data,'教学资源');
-      let obj = this.state.teachingResources;
-      obj.l = true;
-      if(data.status.code==0){
-          obj.list = data.data.list
-      }else{
-          obj.fail = true;
-      };
-      this.setState({
-        teachingResources:obj
-      });
-    }).catch(error=>{
-      let obj = this.state.teachingResources;
-      obj.l = true;
-      obj.fail = true;
-      this.setState({
-        teachingResources:obj
-      });
-    });
-
-    // 教研活动
-    getActivityList({
-        studio_id:this.props.match.params.id,
-        pre_page:5
-    }).then(data=>{
-        console.log(data,'教研活动');
-        let obj = this.state.activity;
-        obj.l = true;
-        if(data.status.code==0){
-          obj.list = data.data.list
-        }else{
-          obj.fail = true;
-        };
-        this.setState({
-          activity:obj
-        });
-    }).catch(error=>{
-      let obj = this.state.activity;
-      obj.fail = true;
-      obj.l = true;
-      this.setState({
-        activity:obj
-      });
-    });
-    // 名师课堂
-    getStudioData({
-      id:this.props.match.params.id,
-      category_type_name:'名师课堂',
-      pre_page:2,
-      require_media:1
-    }).then(data=>{
-        console.log(data,'名师课堂');
-        let obj = this.state.achievements;
-        obj.l = true;
-        if(data.status.code==0){
-          obj.list = data.data.list
-        }else{
-          obj.fail = true;
-        };
-        this.setState({
-          achievements:obj
-        });
-    }).catch(error=>{
-      let obj = this.state.achievements;
-      obj.l = true;
-      obj.fail = true;
-      this.setState({
-        achievements:obj
-      });
-    })
-
+    
   }
+firstLoading(){
+  this.setState({
+    loading:true
+  })
+  getStudioAllInfo({
+      studio:this.props.match.params.id,
+  }).then(res=>{
+      console.log(res,'studio');
+      let data = res.data;
+      var arr = [...data.info.list.slice(0,1),...data.notice.list.slice(0,1),...data.achievements.list.slice(0,1)];
+      arr[0].type = 'information';
+      arr[1].type = 'notice';
+      arr[2].type = 'propaganda';
+      console.log(arr)
+      this.setState({
+        loading:false,
+        information:{list:arr},
+        teachingResources:{list:data.resource.list},
+        activity:{list:data.activities.list},
+        achievements:{list:data.schoolrooms.list},
+        sdtudInfo:data.studio
+      })
+  }).catch(error=>{
+    this.setState({
+      loading:false
+    })
+    console.log(error);
+  })
+}
   componentWillUnmount() {
     if (this.node) {
       scrollTop = this.node.scrollTop
@@ -231,10 +168,10 @@ export default withRouter(class StudioHome extends Component {
     let {params} = this.props.match;
     return (
       <div ref={node=>this.node=node}>
-        <div className='studio_bg'></div>
+        <div className='studio_bg' style={{backgroundImage:'url('+this.state.sdtudInfo.user.mediumAvatar+')'}}></div>
         <div className='studio_info bg_fff'>
           <div className='studio_info_pic'>
-            <img src={src||require('../../common/assets/img/none.png')} alt=''/>
+            <img src={this.state.sdtudInfo.user.mediumAvatar || require('../../common/assets/img/none.png')} alt=''/>
           </div>
           <div className='studio_name'>张金良名师工作室</div>
           <div className='studio_subject'>高中数学</div>
@@ -254,7 +191,7 @@ export default withRouter(class StudioHome extends Component {
           </Flex>
         </div>
         <WhiteSpace/>
-        <Grid data={data} hasLine={false} onClick={(el,index)=>{
+        <Grid data={data} hasLine={false} columnNum={4} onClick={(el,index)=>{
           this.props.history.push(gridData[index].url)
         }}/>
         <WhiteSpace/>
@@ -263,7 +200,7 @@ export default withRouter(class StudioHome extends Component {
           {
             this.state.information.list.map((val,key)=>{
               return (
-                <Information type='notice' info={val} time={val.utime.y+'-'+val.utime.m+'-'+val.utime.d} key={key}/>
+                <Information info={val} time={val.utime.y+'-'+val.utime.m+'-'+val.utime.d} key={key}/>
               )
             })
           }
@@ -356,7 +293,7 @@ export default withRouter(class StudioHome extends Component {
           <WhiteSpace/>
         </div>
         <WhiteSpace/>
-        <Title title='最近访客' showMore={true} to='/131'/>
+        {/* <Title title='最近访客' showMore={true} to='/131'/>
         <div className='bg_fff'>
           <WhiteSpace size='lg'/>
           <Flex justify='around'>
@@ -394,7 +331,7 @@ export default withRouter(class StudioHome extends Component {
             </div>
           </Flex>
           <WhiteSpace size='lg'/>
-        </div>
+        </div> */}
       </div>
     )
   }

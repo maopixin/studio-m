@@ -30,7 +30,7 @@ export default class InformationList extends Component {
         {
             this.state.list.map((val,key)=>{
                 return (
-                    <Information type='information' person='张金良' time='2017-10-14' key={key}/>
+                    <Information type='information' info='val' person='张金良' time='2017-10-14' key={key}/>
                 )
             })
         }

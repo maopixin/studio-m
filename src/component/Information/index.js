@@ -6,17 +6,17 @@ export default class Information extends Component {
   constructor(props){
       super(props);
       this.state={
-        typeList:{information:'资讯',notice:'公告',propaganda:'宣传'}
+        typeList:{information:'资讯',notice:'公告',propaganda:'成果展示'}
       }
   }
   render() {
     let {typeList} = this.state;
-    let {type,time,person,info} = this.props
+    let {time,person,info} = this.props
     return (
       <div className='bg_fff information_box'>
         <WingBlank className='information_item'>
             <div className='information_item_title'>
-                <span className={type}>{'['+typeList[type]+']'}</span>
+                <span className={info.type}>{'['+typeList[info.type]+']'}</span>
                 {info.title}
                 {/* <span className='clam_line'>...</span> */}
             </div>

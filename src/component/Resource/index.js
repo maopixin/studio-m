@@ -4,11 +4,7 @@ export default class Resource extends Component {
   constructor(props){
       super(props);
       this.state = {
-        stateBox:{
-            before:'未开始',
-            start:'进行中',
-            end:'已结束',
-        }
+        stateBox:['before','start','end']
       }
   }
   render() {
@@ -21,8 +17,8 @@ export default class Resource extends Component {
             <div className='resource_item_type'>
                 [{itemData.category_name}]
             </div>
-            <div className={'resource_item_state ' + itemData.state}>
-                {stateBox[itemData.state]}
+            <div className={'resource_item_state ' + stateBox[itemData.detail.process_status]}>
+                {itemData.detail.process_status_text}
             </div>
         </div>
         <div className='fl resource_right'>

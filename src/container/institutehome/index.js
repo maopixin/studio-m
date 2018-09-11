@@ -134,9 +134,9 @@ export default class institutehome extends Component {
         </div>
         <WhiteSpace size='md'/>
         <Title title='工作室资讯' showMore={true} to='/xxx/xxx'/>
-        <Information type='notice' time="2018-01-06"/>
-        <Information type='information' time="2018-01-06"/>
-        <Information type='propaganda' time="2018-01-06"/>
+        <Information type='notice' time="2018-01-06" info='{}'/>
+        <Information type='information' time="2018-01-06" info='{}'/>
+        <Information type='propaganda' time="2018-01-06" info='{}'/>
         <WhiteSpace size='md'/>
 
         <Title title='特色展示' showMore={true} to='/xxx/xxx'/>
