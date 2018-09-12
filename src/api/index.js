@@ -1,5 +1,7 @@
 import axios from 'axios';
+import {Toast} from 'antd-mobile'
 axios.defaults.withCredentials = true;
+// axios.defaults.timeout =  20;
 axios.interceptors.request.use(
     config => {
         config.headers['X-Requested-With'] = 'XMLHttpRequest';
@@ -19,8 +21,9 @@ axios.interceptors.request.use(
 //     });
 
 // const domin = http://institute.dljy.com/studio/api/page_list
-function HandelError(code){
-    
+function HandelError(){
+    Toast.hide();
+    Toast.info('请求超时', 2)
 }
 // 获取研究院下所有工作室列表：institute_id: int [必传]page: int [必传] pre_page: int
 export function getStudioList(payload){
@@ -28,6 +31,7 @@ export function getStudioList(payload){
         params:payload
     }).then(data=>{
         return data.data
+
     }).catch(error=>{
         console.log(error)
     })

@@ -29,11 +29,11 @@ export default withRouter(class StudioHome extends Component {
             icon:'',
             url:`/institute/studio/${this.props.match.params.id}/classroom`,
           },
-          {
-            title:'留言板',
-            icon:'',
-            url:`/institute/studio/${this.props.match.params.id}/leavemsg`,
-          },
+          // {
+          //   title:'留言板',
+          //   icon:'',
+          //   url:`/institute/studio/${this.props.match.params.id}/leavemsg`,
+          // },
           {
             title:'活动案例',
             icon:'',
@@ -44,11 +44,11 @@ export default withRouter(class StudioHome extends Component {
             icon:'',
             url:`/institute/studio/${this.props.match.params.id}/t_article`,
           },
-          {
-            title:'最新动态',
-            icon:'',
-            url:`/institute/studio/${this.props.match.params.id}/news`,
-          },
+          // {
+          //   title:'最新动态',
+          //   icon:'',
+          //   url:`/institute/studio/${this.props.match.params.id}/news`,
+          // },
           {
             title:'成员排名',
             icon:'',
@@ -173,8 +173,8 @@ firstLoading(){
           <div className='studio_info_pic'>
             <img src={this.state.sdtudInfo.user.mediumAvatar || require('../../common/assets/img/none.png')} alt=''/>
           </div>
-          <div className='studio_name'>张金良名师工作室</div>
-          <div className='studio_subject'>高中数学</div>
+          <div className='studio_name'>{this.state.sdtudInfo.subject_major}</div>
+          <div className='studio_subject'>暂无学科</div>
           <Flex className='studio_data_num'>
             <Flex.Item>
               <div className='num'>{sDate.yesterday_added}</div>

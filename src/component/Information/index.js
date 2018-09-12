@@ -6,7 +6,7 @@ export default class Information extends Component {
   constructor(props){
       super(props);
       this.state={
-        typeList:{information:'资讯',notice:'公告',propaganda:'成果展示'}
+        typeList:{information:'资讯',notice:'通告',propaganda:'成果展示'}
       }
   }
   render() {

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd-mobile": "^2.2.1",
+    "mobx": "^5.1.0",
     "promise-polyfill": "8.0.0",
     "qs": "^6.5.2",
     "react": "^16.4.1",
