@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import {withRouter} from 'react-router-dom'
-import { observer } from 'mobx-react';
+import {withRouter,Link} from 'react-router-dom'
+import { observer,inject } from 'mobx-react';
+import store from '../../mobx/index'
 import {getStudioData, getStudioDetail, getStudioLatest, getActivityList ,getStuidoMembers ,getStudioState ,getStudioAllInfo} from '../../api/index';
 import {Flex,WhiteSpace,Grid,WingBlank} from 'antd-mobile'
 import Title from '../../component/Title'
@@ -9,7 +10,6 @@ import Resource from '../../component/Resource'
 import LessonCard from './components/LessonCard'
 import './style/index.css'
 let scrollTop = 0;
-
 
 @observer
 export default withRouter(class StudioHome extends Component {
@@ -195,6 +195,7 @@ firstLoading(){
           </Flex>
         </div>
         <WhiteSpace/>
+        {store.bodyList[0]}
         <Grid data={data} hasLine={false} columnNum={4} onClick={(el,index)=>{
           this.props.history.push(gridData[index].url)
         }}/>
@@ -233,6 +234,7 @@ firstLoading(){
         </div>
         <WhiteSpace/>
         <Title title='名师课堂' showMore={true} to={`/institute/studio/${params.id}/classroom`}/>
+        <Link to={`/institute/studio/${params.id}/classroom`} className='more'>更多2131</Link>
         <div className='bg_fff'>
           <WhiteSpace size='lg'/>
           <WingBlank className='clearfix'>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Route} from 'react-router-dom'
 import asyncComponent from './../../common/assets/js/AsyncComponent'
+import GetBodyList from '../getBodyList'
 const StudioHome = asyncComponent(()=> import('../StudioHome'))//工作室首页
 const ClassRoom = asyncComponent(()=> import('../ClassRoom'))//名师课堂
 const ClassRoomItem = asyncComponent(()=> import('../ClassRoomItem'))//名师课堂详情页
@@ -15,10 +16,12 @@ const News = asyncComponent(()=>import('../News'))//最新动态
 const ActivityCase = asyncComponent(()=>import('../ActivityCase'))//活动案例
 const LeaveMsg = asyncComponent(()=>import('../LeaveMsg'))//留言板
 const ResearchPage = asyncComponent(()=>import('../ResearchPage'))
+
 export default class Studio extends Component {
   render() {
     return (
       <div>
+        <GetBodyList/>
         <Route path='/institute/studio/:id' exact component={StudioHome}/>
         <Route path='/institute/studio/:id/classroom' component={ClassRoom}></Route>
         <Route path='/institute/studio/:id/curriculum/:cid' component={ClassRoomItem}></Route>

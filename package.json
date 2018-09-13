@@ -6,6 +6,7 @@
     "antd-mobile": "^2.2.1",
     "mobx": "^5.1.0",
     "mobx-react": "^5.2.8",
+    "mobx-react-router": "^4.0.5",
     "promise-polyfill": "8.0.0",
     "qs": "^6.5.2",
     "react": "^16.4.1",

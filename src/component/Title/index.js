@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import './style/index.css'
-export default class Title extends Component {
+export default withRouter(class Title extends Component {
 
   render() {
     const {title,showMore,to,moreText} = this.props;
@@ -21,4 +21,4 @@ export default class Title extends Component {
       </div>
     )
   }
-}
+})

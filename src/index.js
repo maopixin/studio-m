@@ -6,13 +6,15 @@ import registerServiceWorker from './registerServiceWorker';
 import initReactFastclick from 'react-fastclick';
 import 'promise-polyfill/src/polyfill';
 initReactFastclick();
-
+ 
 
 ReactDOM.render(
     <Router>
         <Route path="/institute"  render={(props)=>{
-            return (<App location={props.location}/>)
+            return (
+                <App location={props.location}/>
+            )
         }} />
-    </Router>
-    , document.getElementById('root'));
+    </Router>,
+    document.getElementById('root'));
 registerServiceWorker();
