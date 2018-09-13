@@ -26,7 +26,8 @@ export default withRouter(class StudioHome extends Component {
           },
           {
             title:'教学资源',
-            icon:''
+            icon:'',
+            url:`/institute/studio/${this.props.match.params.id}/t_resource`
           },
           {
             title:'名师课堂',
@@ -234,7 +235,6 @@ firstLoading(){
         </div>
         <WhiteSpace/>
         <Title title='名师课堂' showMore={true} to={`/institute/studio/${params.id}/classroom`}/>
-        <Link to={`/institute/studio/${params.id}/classroom`} className='more'>更多2131</Link>
         <div className='bg_fff'>
           <WhiteSpace size='lg'/>
           <WingBlank className='clearfix'>

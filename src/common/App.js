@@ -12,8 +12,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route path="/institute" component={Institute}></Route>
-        <Route path="/institute/studio" component={Studio}></Route>
+        <Route path="/institute" component={Studio}></Route>
       </div>
     );
   }

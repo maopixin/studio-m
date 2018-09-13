@@ -126,6 +126,11 @@ export default withRouter(class InformationList extends Component {
                   <PullToRefresh
                     direction={direction}
                     refreshing={this.state.refreshing}
+                    indicator={{ activate: '松开立即加载', deactivate: '下拉加载更多', finish: '加载完成' }}
+                    style={{
+                      height: this.state.height,
+                      overflow: 'auto',
+                    }}
                     ref={el => this.ptr = el}
                     onRefresh={() => {
                       if(aEle.page>aEle.data.total_page){

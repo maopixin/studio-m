@@ -7,7 +7,7 @@ export default withRouter(class Title extends Component {
     const {title,showMore,to,moreText} = this.props;
     let more;
     if(showMore){
-      more=(<Link to={to} className='more'>{moreText||'更多'}</Link>)
+      more=(<span onClick={()=>{this.props.history.push(to)}} className='more'>{moreText||'更多'}</span>)
     }else{
       more=moreText
     }

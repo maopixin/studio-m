@@ -15,15 +15,17 @@ export default class Information extends Component {
     return (
       <div className='bg_fff information_box'>
         <WingBlank className='information_item'>
-            <div className='information_item_title'>
-                <span className={info.type}>{'['+typeList[info.type]+']'}</span>
-                {info.title}
-                {/* <span className='clam_line'>...</span> */}
-            </div>
-            <div className='information_item_time clearfix'>
-              <div className='fl'>{person}</div>
-              <div className='fr'>{time}</div>
-            </div>
+            <a href={info._link}>
+              <div className='information_item_title'>
+                  <span className={info.type}>{'['+typeList[info.type]+']'}</span>
+                  {info.title}
+                  {/* <span className='clam_line'>...</span> */}
+              </div>
+              <div className='information_item_time clearfix'>
+                <div className='fl'>{person}</div>
+                <div className='fr'>{time}</div>
+              </div>
+            </a>
         </WingBlank>
       </div>
     )

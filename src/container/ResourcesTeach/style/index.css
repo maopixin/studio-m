@@ -16,18 +16,78 @@
   height: 1.17333333rem;
   margin-right: 0.32rem;
   position: relative;
+  background: url('../../../common/assets/img/unknown.png') no-repeat center center;
+  background-size: cover;
 }
-.t_resource_page .resource_item_info .pic img {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+.t_resource_page .resource_item_info .avi {
+  background: url('../../../common/assets/img/avi.png') no-repeat center center;
+  background-size: cover;
 }
+.t_resource_page .resource_item_info .doc {
+  background: url('../../../common/assets/img/doc.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .exe {
+  background: url('../../../common/assets/img/exe.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .html {
+  background: url('../../../common/assets/img/html.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .mp4 {
+  background: url('../../../common/assets/img/mp4.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .mpg {
+  background: url('../../../common/assets/img/mpg.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .pdf {
+  background: url('../../../common/assets/img/pdf.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .ppt,
+.t_resource_page .resource_item_info .pptx {
+  background: url('../../../common/assets/img/ppt.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .rar {
+  background: url('../../../common/assets/img/rar.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .rm {
+  background: url('../../../common/assets/img/rm.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .txt,
 .t_resource_page .resource_item_info .text {
+  background: url('../../../common/assets/img/txt.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .wmv {
+  background: url('../../../common/assets/img/wmv.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .word {
+  background: url('../../../common/assets/img/word.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .xls,
+.t_resource_page .resource_item_info .xlsx {
+  background: url('../../../common/assets/img/xls.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .zip {
+  background: url('../../../common/assets/img/zip.png') no-repeat center center;
+  background-size: cover;
+}
+.t_resource_page .resource_item_info .texts {
   width: 7.6rem;
   display: inline-block;
   vertical-align: middle;
 }
-.t_resource_page .resource_item_info .text .title {
+.t_resource_page .resource_item_info .texts .title {
   width: 7.6rem;
   font-size: 14px;
   line-height: 0.88rem;
@@ -37,7 +97,7 @@
   text-overflow: ellipsis;
   color: #373737;
 }
-.t_resource_page .resource_item_info .text .time {
+.t_resource_page .resource_item_info .texts .time {
   color: #888888;
   line-height: 0.66666667rem;
 }
