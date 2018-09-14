@@ -6,15 +6,22 @@
   overflow: hidden;
   border-radius: 4px;
 }
+.video_play_box a {
+  color: #000;
+}
 .video_play_box:nth-of-type(2n) {
   float: right;
 }
 .video_play_box .height_box {
   height: 3.11111111rem;
+  position: relative;
 }
 .video_play_box .height_box img {
   height: 100%;
-  width: 100%;
+  min-width: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 .video_play_box .video_play_box_info {
   padding: 0.22222222rem;

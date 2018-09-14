@@ -226,3 +226,11 @@ export function getLessonIndex(payload){
         return data.data;
     })
 }
+//  /api/category/children?studio_id=1&parent_name=名师课堂
+export function getColumnChildByName(payload){
+    return axios.get('/api/category/children',{
+        params:payload
+    }).then(data=>{
+        return data.data;
+    })
+}

@@ -47,7 +47,7 @@ export default class Research extends Component {
         active:0,
         refreshing:false,
         height: document.documentElement.clientHeight,
-        pre_page:1,
+        pre_page:10,
         firstLoading:true
       }
       
@@ -60,6 +60,7 @@ export default class Research extends Component {
     }).then(data=>{
         console.log(data)
         if(data.status.code==0){
+            data.data.list = this.handleData(data.data.list);
             this.setState({
                 goingList:data.data.list,
                 firstLoading:false
@@ -75,6 +76,16 @@ export default class Research extends Component {
     setTimeout(() => this.setState({
       height: hei,
     }), 0);
+  }
+  handleData(arr){
+      for (let i = 0; i < arr.length; i++) {
+          if(arr[i].address == '线上'){
+              arr[i].type_text = '线上'
+          }else{
+              arr[i].type_text = '线下'
+          }
+      }
+      return arr;
   }
   render() {
     let {
@@ -107,6 +118,7 @@ export default class Research extends Component {
                                         pre_page: this.state.pre_page,
                                         process_status: val.process_status
                                     }).then(data=>{
+                                        data.data.list = this.handleData(data.data.list);
                                         this.setState({
                                             [val.type]:data.data.list,
                                         })
@@ -151,6 +163,7 @@ export default class Research extends Component {
                         }else{
                             let obj = typeList;
                             obj[active].page += 1;
+                            data.data.list = this.handleData(data.data.list);
                             this.setState({
                                 [typeList[active].type]:[...this.state[typeList[active].type],...data.data.list],
                                 refreshing:false,

@@ -12,7 +12,9 @@ initReactFastclick();
 
 ReactDOM.render(
     <Router>
-        <Route path="/" component={Studio}></Route>
+        <Route path="/"  render={(props)=>{
+            return (<App location={props.location}/>)
+        }} />
     </Router>,
     document.getElementById('root'));
 registerServiceWorker();

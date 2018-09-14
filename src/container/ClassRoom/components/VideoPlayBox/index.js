@@ -7,24 +7,21 @@ export default withRouter(class VideoPlayBox extends Component {
     super(props);
   }
   render() {
-    let {url,pic} = this.props
+    let {url,pic,info} = this.props
     return (
-      <div 
-        className='video_play_box'
-        onClick={()=>{
-          this.props.history.push(url)
-        }}
-      >
-        <div className='height_box'>
-          <img className={pic?'':'no_scla'} src={pic||require('../../../../common/assets/img/none.png')} alt=''/>
-        </div>
-        <div className='video_play_box_info bg_body'>
-            <div className='title'>标题</div>
-            <div className='name_time clearfix'>
-                <span className='fl'>陈祥龙</span>
-                <span className='fr'>2018-05-04</span>
-            </div>
-        </div>
+      <div className='video_play_box'>
+        <a href={info._link}>
+          <div className='height_box'>
+            <img className={pic?'':'no_scla'} src={info.detail.middle||require('../../../../common/assets/img/none.png')} alt=''/>
+          </div>
+          <div className='video_play_box_info bg_body'>
+              <div className='title'>{info.title}</div>
+              <div className='name_time clearfix'>
+                  <span className='fl'>{info.username}</span>
+                  <span className='fr'>{info.utime.y+'-'+info.utime.m+'-'+info.utime.d}</span>
+              </div>
+          </div>
+        </a>
       </div>
     )
   }

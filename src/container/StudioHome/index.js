@@ -234,7 +234,7 @@ firstLoading(){
           }
         </div>
         <WhiteSpace/>
-        <Title title='名师课堂' showMore={true} to={`/institute/studio/${params.id}/classroom`}/>
+        <Title title='名师课堂' showMore={true} to={`/institute/studio/${params.id}/classroom/名师课堂`}/>
         <div className='bg_fff'>
           <WhiteSpace size='lg'/>
           <WingBlank className='clearfix'>

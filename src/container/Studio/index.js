@@ -23,7 +23,7 @@ export default class Studio extends Component {
       <div>
         <Route path='/institute/studio/:id' component={GetBodyList}/>
         <Route path='/institute/studio/:id' exact component={StudioHome}/>
-        <Route path='/institute/studio/:id/classroom' component={ClassRoom}></Route>
+        <Route path='/institute/studio/:id/classroom/:cname' component={ClassRoom}></Route>
         <Route path='/institute/studio/:id/curriculum/:cid' component={ClassRoomItem}></Route>
         <Route path='/institute/studio/:id/information' component={informationList}></Route>
         <Route path='/institute/studio/:id/introduce' component={BriefIntroduce}></Route>
