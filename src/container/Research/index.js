@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from "react-dom";
+import {Link} from 'react-router-dom'
 import {PullToRefresh,Icon,Toast} from 'antd-mobile';
-import {getActivityList,joinActivity} from '../../api/index'
+import {getActivityList,joinActivity,} from '../../api/index'
 import './style/index.css';
 
 export default class Research extends Component {
@@ -182,14 +183,23 @@ export default class Research extends Component {
                 this.state[typeList[active].type].map((val,key)=>{
                     return (
                         <div className='activit_item' key={key}>
-                            <div className='title'>
-                                <span className={'type '+ lineType[val.type_text]}>
+                            <div 
+                                className='title'
+                                onClick={()=>{
+                                    this.props.history.push('research/'+val.id)
+                                }}
+                            >
+                                {/* <Link
+                                    to={'research/'+val.id}
+                                > */}
+                                    <span className={'type '+ lineType[val.type_text]}>
                                     
-                                </span>
-                                <span className='state not_beginning'>
-                                    {val.process_status_text}
-                                </span>
-                                {val.title}
+                                    </span>
+                                    <span className='state not_beginning'>
+                                        {val.process_status_text}
+                                    </span>
+                                    {val.title}
+                                {/* </Link> */}
                             </div>
                             <div className='activit_info'>
                                 <div className='info_item clearfix'>

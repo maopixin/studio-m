@@ -35,6 +35,10 @@
   font-size: 0.4rem;
   border-bottom: 1px solid #e2e2e2;
 }
+.research_page .activit_item .title a {
+  color: #000;
+  display: block;
+}
 .research_page .activit_item .title .type {
   width: 0.56rem;
   height: 0.45333333rem;

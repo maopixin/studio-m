@@ -17,8 +17,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
+  max-width: 9.2rem;
   min-width: 9.2rem;
-  min-height: 4.4rem;
   transform: translate(-50%, -50%);
 }
 .research_page .r_page_info .pic_box span {
@@ -82,4 +82,236 @@
 }
 .research_page .r-notice .notice-list .blue {
   color: #1b9fe2;
+}
+.research_page .p-content {
+  padding: 0.5rem 0.4rem;
+  font-size: 0.24rem;
+  line-height: 0.5067rem;
+}
+.research_page .activity-step {
+  padding: 0.48rem 0.4rem 0.5333rem;
+}
+.research_page .activity-step .step {
+  position: relative;
+  box-sizing: border-box;
+  width: 1.4667rem;
+  height: 1.4667rem;
+  margin-bottom: 0.4rem;
+  background-color: #35a9e4;
+  border-radius: 50%;
+  font-size: 0.3467rem;
+  line-height: 0.4533rem;
+  color: #fff;
+  padding: 0.28rem 0.3467rem;
+  text-align: justify;
+}
+.research_page .activity-step .step i {
+  display: inline-block;
+  width: 100%;
+}
+.research_page .activity-step .step em {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: url('../../../common/assets/img/step-a.png') no-repeat;
+  background-size: cover;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: -0.4rem;
+}
+.research_page .activity-step .step:after {
+  content: '';
+  position: absolute;
+  height: 0.26rem;
+  width: 0.26rem;
+  bottom: -0.32rem;
+  background: url('../../../common/assets/img/bottom.png') no-repeat center center;
+  background-size: cover;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.research_page .activity-step .step:last-child:after {
+  display: none;
+}
+.research_page .activity-step .step:before {
+  content: '';
+  position: absolute;
+  width: 1.6rem;
+  height: 1.6rem;
+  top: -0.09rem;
+  left: -0.09rem;
+  border: 1px dashed #1b9fe2;
+  border-radius: 50%;
+}
+.research_page .activity-step .step-active {
+  background-color: #2893c9;
+}
+.research_page .activity-step .step-content {
+  width: 7rem;
+}
+.research_page .activity-step .step-content h4 {
+  border-bottom: 1px solid #ebebeb;
+  color: #676767;
+  margin-bottom: 0.3333rem;
+}
+.research_page .activity-step .step-content h4 span {
+  font-size: 0.3733rem;
+  line-height: 0.5867rem;
+  display: inline-block;
+  vertical-align: middle;
+  border-bottom: 2px solid #1b9fe2;
+  margin-bottom: -2px;
+}
+.research_page .activity-step .step-content h4 em {
+  display: inline-block;
+  vertical-align: middle;
+  font-style: normal;
+  width: 1.64rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  background-color: #ffa101;
+  text-align: center;
+  margin-left: 0.32rem;
+  border-radius: 2px;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.research_page .activity-step .step-content h4 em input {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 1.64rem;
+  height: 0.48rem;
+}
+.research_page .activity-step .step-content .text-s {
+  font-size: 0.24rem;
+  line-height: 0.4533rem;
+  color: #383838;
+}
+.research_page .activity-step .step-content .text-s span {
+  color: #696969;
+}
+.research_page .activity-step .step-content .mm {
+  margin-bottom: 0.4rem;
+}
+.research_page .activity-step .step-content .text {
+  font-size: 0.24rem;
+  line-height: 0.4533rem;
+  color: #383838;
+}
+.research_page .activity-step .step-content .pic-list li {
+  float: left;
+  width: 3.3867rem;
+  height: 2.4667rem;
+  background-position: center center;
+  background-size: cover;
+}
+.research_page .activity-step .step-content .pic-list li:nth-of-type(2n) {
+  float: right;
+}
+.research_page .activity-step .step-content .res-item {
+  color: #686868;
+  background: url('../../../common/assets/img/page.png') no-repeat 0 center;
+  background-size: 0.2933rem;
+  padding-left: 0.5333rem;
+  line-height: 0.6667rem;
+}
+.research_page .activity-step .step-content .res-item .title {
+  color: #343434;
+}
+.research_page .activity-step .step-content .res-item .down {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-top: 0.1rem;
+  background: url('../../../common/assets/img/down.png') no-repeat center center;
+  background-size: cover;
+}
+.research_page .activity-step .step-content .score-box h5 {
+  font-size: 0.3467rem;
+  line-height: 0.4533rem;
+  color: #676767;
+  margin-bottom: 0.2667rem;
+}
+.research_page .activity-step .step-content .score-box .show-text {
+  text-align: center;
+  font-size: 0.4rem;
+  line-height: 0.8rem;
+}
+.research_page .activity-step .step-content .score-box .star-list {
+  text-align: center;
+}
+.research_page .activity-step .step-content .score-box .star-list span {
+  display: inline-block;
+  margin: 0 0.2rem;
+  width: 0.7rem;
+  height: 0.7rem;
+  background: url('../../../common/assets//img/star.png') no-repeat;
+  background-size: cover;
+}
+.research_page .activity-step .step-content .score-box .star-list .star {
+  background: url('../../../common/assets//img/star-c.png') no-repeat;
+  background-size: cover;
+}
+.research_page .activity-step .step-content .score-box textarea {
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  height: 2.4rem !important;
+  max-height: 2.4rem !important;
+  padding: 0.08rem;
+  font-size: 0.24rem;
+  overflow: scroll;
+}
+.research_page .activity-step .step-content .score-box .am-list-item {
+  padding: 0;
+  margin-top: 0.2667rem;
+}
+.research_page .activity-step .step-content .score-box .am-textarea-control {
+  padding: 0 !important;
+}
+.research_page .activity-step .step-content .score-box .textarea-box {
+  margin: 0.2667rem 0;
+}
+.research_page .activity-step .step-content .vote-box .yes {
+  color: #35a9e4;
+}
+.research_page .activity-step .step-content .vote-box .nums {
+  height: 0.24rem;
+  background-color: #b2b2b2;
+  border-radius: 0.12rem;
+  overflow: hidden;
+  margin: 0.4rem 0;
+}
+.research_page .activity-step .step-content .vote-box .nums .yes-num {
+  height: 0.24rem;
+  background-color: #35a9e4;
+}
+.research_page .activity-step .step-content .vote-box .vote-btns {
+  padding: 0 0.1333rem;
+}
+.research_page .activity-step .step-content .vote-box .vote-btns a {
+  height: 0.8267rem;
+  line-height: 0.8rem;
+  border-radius: 0.4133rem;
+}
+.research_page .activity-step .step-content .vote-box .vote-btns span {
+  font-size: 0.2667rem;
+  line-height: 0.8267rem;
+}
+.research_page .activity-step .step-content .video-box .video-player {
+  height: 3.84rem;
+  background-color: #000;
+}
+.research_page .activity-step .step-content .video-box .video-info {
+  font-size: 0.2667rem;
+  line-height: 0.9333rem;
+  color: #676767;
+}
+.research_page .activity-step .step-content .video-box .video-info .down {
+  padding-left: 0.4267rem;
+  background: url('../../../common//assets/img/down.png') no-repeat 0 center;
+  background-size: 0.32rem;
 }
