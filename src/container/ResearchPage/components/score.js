@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import {TextareaItem,Button,Toast} from 'antd-mobile'
+import {TextareaItem,Button,Toast,Modal} from 'antd-mobile'
 import {activitiyUserAppraisal} from '../../../api/index'
+import store from '../../../mobx/index'
+import { observer } from 'mobx-react';
+
+@observer
 export default class score extends Component {
     constructor(props){
         super(props);
@@ -13,6 +17,15 @@ export default class score extends Component {
         this.up = this.up.bind(this);
     }
     up(){
+        if(!store.userInfo.get_login){
+            Modal.alert('未登录', '此操作需要登录才能继续', [
+                { text: '取消'},
+                { text: '登录', onPress: () =>{
+                    window.location.href = 'http://account.dljy.com/user/login/login?goto='+window.location.href;
+                }},
+            ]);
+            return false
+        }
         if(this.state.index<=0){
             Toast.info('请先打分再进行提交', 2);
             return false;
@@ -64,12 +77,12 @@ export default class score extends Component {
                 </div>
                 <div className='textarea-box'>
                     <TextareaItem
-                        ref={el => this.customFocusInst = el}
+                        ref={el => this.autoFocusInst = el}
                         placeholder="感想"
                         autoHeight
-                        // onClick={()=>{
-                        //     this.autoFocusInst.focus();
-                        // }}
+                        onClick={()=>{
+                            this.autoFocusInst.focus();
+                        }}
                         value={textarea}
                         onInput={(event)=>{
                             this.setState({textarea: event.target.value});

@@ -97,20 +97,22 @@ export default class ResourcesTeach extends Component {
                             {
                                 this.state.TabsData[key1].data.list.map((val,key)=>(
                                     <div className='resource_items' key={key}>
-                                        <div className='resource_item_info'>
-                                            <div className={'pic '+val.fileType_mine}>
-                                                
+                                        <a href={val._link}>
+                                            <div className='resource_item_info'>
+                                                <div className={'pic '+val.fileType_mine}>
+                                                    
+                                                </div>
+                                                <div className='texts'>
+                                                    <div className='title'>{val.title}</div>
+                                                    <div className='time'>{val.utime.y+'-'+val.utime.m+'-'+val.utime.d}</div>
+                                                </div>
                                             </div>
-                                            <div className='texts'>
-                                                <div className='title'>{val.title}</div>
-                                                <div className='time'>{val.utime.y+'-'+val.utime.m+'-'+val.utime.d}</div>
-                                            </div>
-                                        </div>
-                                        <Flex className='resource_person_info' justify='between'>
-                                            <div>创建者：{val.username}</div>
-                                            <div>浏览：{val.hits}次</div>
-                                            <div>下载：{val.hits}次</div>
-                                        </Flex>
+                                            <Flex className='resource_person_info' justify='between'>
+                                                <div>创建者：{val.username}</div>
+                                                <div>浏览：{val.hits}次</div>
+                                                <div>下载：{val.hits}次</div>
+                                            </Flex>
+                                        </a>
                                     </div>
                                 ))
                             }

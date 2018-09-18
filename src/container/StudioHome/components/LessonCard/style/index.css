@@ -1,6 +1,10 @@
 .lesson_card_item {
   width: 48%;
   float: left;
+  margin-bottom: 0.24rem;
+}
+.lesson_card_item a {
+  color: inherit;
 }
 .lesson_card_item:nth-of-type(2n) {
   float: right;

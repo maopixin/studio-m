@@ -19,11 +19,11 @@ export default withRouter(class StudioHome extends Component {
       data:{
         src:'',
         gridData:[
-          {
-            title:'工作室简介', 
-            icon:'',
-            url:`/institute/studio/${this.props.match.params.id}/introduce`,
-          },
+          // {
+          //   title:'工作室简介', 
+          //   icon:'',
+          //   url:`/institute/studio/${this.props.match.params.id}/introduce`,
+          // },
           {
             title:'教学资源',
             icon:'',
@@ -32,18 +32,18 @@ export default withRouter(class StudioHome extends Component {
           {
             title:'名师课堂',
             icon:'',
-            url:`/institute/studio/${this.props.match.params.id}/classroom`,
+            url:`/institute/studio/${this.props.match.params.id}/classroom/名师课堂`,
           },
           // {
           //   title:'留言板',
           //   icon:'',
           //   url:`/institute/studio/${this.props.match.params.id}/leavemsg`,
           // },
-          {
-            title:'活动案例',
-            icon:'',
-            url:`/institute/studio/${this.props.match.params.id}/activitycase`,
-          },
+          // {
+          //   title:'活动案例',
+          //   icon:'',
+          //   url:`/institute/studio/${this.props.match.params.id}/activitycase`,
+          // },
           {
             title:'教师文章',
             icon:'',
@@ -196,7 +196,6 @@ firstLoading(){
           </Flex>
         </div>
         <WhiteSpace/>
-        {store.bodyList[0]}
         <Grid data={data} hasLine={false} columnNum={4} onClick={(el,index)=>{
           this.props.history.push(gridData[index].url)
         }}/>

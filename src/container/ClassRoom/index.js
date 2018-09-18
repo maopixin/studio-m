@@ -8,7 +8,7 @@ export default class ClassRoom extends Component {
   constructor(props){
     super(props);
     this.state = {
-      pre_page:2,
+      pre_page:8,
       refreshing: false,
       down: true,
       height: document.documentElement.clientHeight,

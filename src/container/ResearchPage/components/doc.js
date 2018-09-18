@@ -14,8 +14,7 @@ export default class doc extends Component {
                     {
                         info.detail.user_resources && info.detail.user_resources.data.map((e)=>{
                             return (
-                                <li className='res-item'>
-                                    活动文档：
+                                <li className='res-item' key={e.id}>
                                     <span className="title">
                                         <a href={'/index/file/download?activity_user_resource='+e.id}>{e.filename}</a>
                                     </span>

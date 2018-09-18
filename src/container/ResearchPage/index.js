@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import Title from '../../component/Title'
-import {getActivityDetail} from '../../api/index'
+import {getActivityDetail,activityUserComment} from '../../api/index'
+import store from '../../mobx/index'
+import { observer,inject } from 'mobx-react';
+import {Modal} from 'antd-mobile'
 import Text from './components/text'
 import Pic from './components/pic'
 import Doc from './components/doc'
@@ -10,15 +13,20 @@ import Vote from './components/vote'
 import Video from './components/video'
 import LeavingMsg from '../../component/LeavingMsg'
 import './style/index.css'
+
+@observer
 export default class ResearchPage extends Component {
     constructor(props){
         super(props);
         this.state = {
             activityInfo:{
-                tache:[]
+                tache:[]                         
             },
-            index:0
+            index:0,
+            textarea:'',
+            first:true
         }
+        this.handleLeavingBtn = this.handleLeavingBtn.bind(this)
     }
     componentDidMount() {
         getActivityDetail({
@@ -76,15 +84,49 @@ export default class ResearchPage extends Component {
                 break;
         }
     }
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+    handleLeavingBtn(){
+        if(!store.userInfo.get_login){
+            Modal.alert('未登录', '此操作需要登录才能继续', [
+                { text: '取消'},
+                { text: '登录', onPress: () =>{
+                    window.location.href = 'http://account.dljy.com/user/login/login?goto='+window.location.href;
+                }},
+            ]);
+            return false
+        }
+        activityUserComment({
+            activity_tache_id:this.state.activityInfo.tache[this.state.index].id,
+            content:this.state.textarea
+        }).then(data=>{
+            if(data.status.code==0){
+                let obj = this.state.activityInfo;
+                let info = store.userInfo
+                obj.tache[this.state.index].comments.data.unshift({
+                    content:this.state.textarea,
+                    utime:"刚刚",
+                    create_user_name:info.nickname,
+                    create_user_mediumAvatar:info.largeAvatar
+                });
+                this.setState({
+                    activityInfo:obj
+                })
+            }else{
+
+            }
+        })
+    }
     render() {
-        let {activityInfo,index} = this.state
+        let {activityInfo,index,textarea} = this.state
         let Ele = this.getEle()
         return (
         <div className='research_page'>
             <div className='r_page_info'>
                 <div className='pic_box'>
                     <img src={activityInfo.cover} alt=""/>
-                    <span className='on_line'></span>
+                    
                 </div>
                 <h3 className='r-title'>
                     {activityInfo.title}
@@ -213,7 +255,57 @@ export default class ResearchPage extends Component {
                     </div>
                 </div>
             </div>
-            <LeavingMsg key={1} itemData={{}}/>
+            <div className='leaving_msg_box bg_fff'>
+                <input 
+                    value={this.state.textarea} 
+                    className='leaving_msg_btn'
+                    onInput={(event)=>{
+                        this.setState({textarea: event.target.value});
+                    }}
+                    onClick={()=>{
+                        if(!store.userInfo.get_login && this.state.first){
+                            Modal.alert('未登录', '此操作需要登录才能继续', [
+                                { text: '取消'},
+                                { text: '登录', onPress: () =>{
+                                    window.location.href = 'http://account.dljy.com/user/login/login?goto='+window.location.href;
+                                }},
+                            ]);
+                            this.setState({
+                                first:false
+                            })
+                            return false
+                        }
+                        this.autoFocusInst.focus();
+                    }}
+                    ref={el => this.autoFocusInst = el}
+                    placeholder='我也来评论一句'
+                >
+                </input>
+                <div className='handle_btn' onClick={this.handleLeavingBtn}>
+                    评论
+                </div>
+            </div>
+            <h4 className='title_box'>
+                <span>最新评论</span>
+            </h4>
+            <div className="l_msg">
+            {
+                
+            }
+                {
+                    activityInfo.tache.length>0 && activityInfo.tache[index].comments.data.length>0
+                    ?
+                    activityInfo.tache[index].comments.data.map(e=>{
+                        return (
+                            <LeavingMsg key={e.id} itemData={e}/>
+                        )
+                    })
+                    :
+                    <div>暂无评论</div>
+                }
+                
+            </div>
+            
         </div>
         )
     }

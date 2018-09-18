@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd-mobile": "^2.2.1",
+    "jsonp": "^0.2.1",
     "mobx": "^5.1.0",
     "mobx-react": "^5.2.8",
     "mobx-react-router": "^4.0.5",

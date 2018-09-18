@@ -4,12 +4,17 @@ export default class pic extends Component {
         super(props);
     }
     render(){
+        let {info} = this.props
         return (
             <ul className='pic-list'>
-                <li style={{backgroundImage:'url("http://static.dljy.com/institute//20180907202628_5b926e749a3f3.png")'}}>
-                </li>
-                <li style={{backgroundImage:'url("http://static.dljy.com/institute//20180907202628_5b926e749a3f3.png")'}}>
-                </li>
+                {
+                    info.detail.user_resources.data.map(e=>{
+                        return (
+                            <li style={{backgroundImage:'url('+e.source_path+')'}}>
+                            </li>
+                        )
+                    })
+                }
             </ul>
         )
     }

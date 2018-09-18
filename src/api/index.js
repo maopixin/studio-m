@@ -234,3 +234,24 @@ export function getColumnChildByName(payload){
         return data.data;
     })
 }
+
+// 活动列表上传文件
+export function uploadPhoto(payload,callback1,callback2){
+    axios({
+        url:'/index/file/upload?studio_id='+payload.id+'&activity_tache_id='+payload.id2,
+        method:'post',
+        onUploadProgress:function(progressEvent){ //原生获取上传进度的事件
+            if(progressEvent.lengthComputable){
+                //属性lengthComputable主要表明总共需要完成的工作量和已经完成的工作是否可以被测量
+                //如果lengthComputable为false，就获取不到progressEvent.total和progressEvent.loaded
+                callback1(progressEvent);
+            }
+        },
+        headers:{'Content-Type':'multipart/form-data'},
+        data:payload.data
+    }).then(res =>{
+        callback2(res.data);
+    }).then(error =>{
+        console.log(error)
+    })
+}
