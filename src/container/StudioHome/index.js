@@ -3,7 +3,7 @@ import {withRouter,Link} from 'react-router-dom'
 import { observer,inject } from 'mobx-react';
 import store from '../../mobx/index'
 import {getStudioData, getStudioDetail, getStudioLatest, getActivityList ,getStuidoMembers ,getStudioState ,getStudioAllInfo} from '../../api/index';
-import {Flex,WhiteSpace,Grid,WingBlank} from 'antd-mobile'
+import {Flex,WhiteSpace,Grid,WingBlank,Toast} from 'antd-mobile'
 import Title from '../../component/Title'
 import Information from '../../component/Information'
 import Resource from '../../component/Resource'
@@ -103,11 +103,18 @@ export default withRouter(class StudioHome extends Component {
       this.node.scrollTop = scrollTop
     }
   }
+
+
+
+
   getFirstScreen(){
+    Toast.loading('努力加载中', 10, ()=>{
+
+    })
     getStudioState({
       id:this.props.match.params.id
     }).then(data=>{
-        console.log(data,'工作室状态');
+        Toast.hide();
         let obj = this.state.studioState;
         obj.l = true;
         if(data.status.code==0){
