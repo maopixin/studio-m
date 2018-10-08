@@ -105,7 +105,7 @@ export default class MemberList extends Component {
                     className='list_box'
                     direction='up'
                     refreshing={this.state.refreshing}
-                    indicator={{ activate: '松开立即加载', deactivate: '下拉加载更多', finish: '加载完成' }}
+                    indicator={{ activate: '松开立即加载', deactivate: '上拉加载更多', finish: '加载完成' }}
                     onRefresh={()=>{
                         if(this.state.page<=this.state.member.total_page){
                             this.setState({
