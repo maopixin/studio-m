@@ -109,12 +109,12 @@ export default withRouter(class StudioHome extends Component {
 
   getFirstScreen(){
     Toast.loading('努力加载中', 10, ()=>{
-
+      
     })
     getStudioState({
       id:this.props.match.params.id
     }).then(data=>{
-        Toast.hide();
+        
         let obj = this.state.studioState;
         obj.l = true;
         if(data.status.code==0){
@@ -125,6 +125,8 @@ export default withRouter(class StudioHome extends Component {
         }
         this.setState({
           studioState:obj
+        },()=>{
+          Toast.hide();
         })
     }).catch(error=>{
       let obj = this.state.studioState;
