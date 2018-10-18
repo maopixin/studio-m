@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import {withRouter} from 'react-router-dom'
 import './style/index.css'
-export default class Resource extends Component {
+export default withRouter(class Resource extends Component {
   constructor(props){
       super(props);
       this.state = {
@@ -10,12 +11,16 @@ export default class Resource extends Component {
   render() {
     let {stateBox} = this.state;
     let {itemData} = this.props;
+    console.log(this.props)
     let {y,m,d} = itemData.utime;
     return (
       <div className='resource_item clearfix'>
         <a href={itemData._link||'javascript:;'}
             onClick={()=>{
-                
+                console.log(1)
+                if(!itemData._link){
+                    this.props.history.push(this.props.match.url+'/research/'+itemData.source_id)
+                }
             }}
         >
             <div className='fl resource_left'>
@@ -37,4 +42,4 @@ export default class Resource extends Component {
       </div>
     )
   }
-}
+})
