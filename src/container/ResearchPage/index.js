@@ -102,6 +102,7 @@ export default class ResearchPage extends Component {
             content:this.state.textarea
         }).then(data=>{
             if(data.status.code==0){
+                Toast.success('评论发表成功', 1)
                 let obj = this.state.activityInfo;
                 let info = store.userInfo
                 obj.tache[this.state.index].comments.data.unshift({
@@ -111,10 +112,11 @@ export default class ResearchPage extends Component {
                     create_user_mediumAvatar:info.largeAvatar
                 });
                 this.setState({
-                    activityInfo:obj
+                    activityInfo:obj,
+                    textarea:''
                 })
             }else{
-
+                Toast.fail('评论发表失败', 1)
             }
         })
     }
