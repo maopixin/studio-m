@@ -3,7 +3,7 @@ import Title from '../../component/Title'
 import {getActivityDetail,activityUserComment} from '../../api/index'
 import store from '../../mobx/index'
 import { observer,inject } from 'mobx-react';
-import {Modal} from 'antd-mobile'
+import {Modal,Toast} from 'antd-mobile'
 import Text from './components/text'
 import Pic from './components/pic'
 import Doc from './components/doc'
