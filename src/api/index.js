@@ -255,3 +255,19 @@ export function uploadPhoto(payload,callback1,callback2){
         console.log(error)
     })
 }
+
+export function getStudioIndex(payload){
+    return axios.get('/api/studioP/index',{
+        params:payload
+    }).then(data=>{
+        return data.data;
+    })
+}
+
+export function getInstituteDetail(payload){
+    return axios.get('/api/institute/detail',{
+        params:payload
+    }).then(data=>{
+        return data.data;
+    })
+}

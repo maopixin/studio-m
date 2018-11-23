@@ -1,5 +1,4 @@
 .studio_list_page {
-  padding-top: 1.11111111rem;
   position: relative;
 }
 .check_box {
@@ -22,18 +21,99 @@
   right: 15px;
 }
 .rank_type_list {
-  text-align: center;
   font-size: 0.33333333rem;
   line-height: 1rem;
+  border-radius: 6px 6px 0 0;
 }
-.rank_type_list .active {
-  color: #1b9fe2;
+.rank_type_list .sort {
+  flex: 0.5 0.5;
 }
 .rank_type_list span {
+  text-indent: 15px;
   display: inline-block;
   vertical-align: middle;
 }
 .rank_type_list svg {
   display: inline-block;
   vertical-align: middle;
+}
+.show-type-list {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 0 5px;
+  text-indent: 15px;
+}
+.show-type-list li {
+  color: #3d4245;
+  border-top: solid 1px #c8c7cc;
+}
+.show-type-list li .fl {
+  text-indent: 15px;
+}
+.show-type-list li .fr {
+  display: none;
+  text-align: right;
+  padding-right: 15px;
+}
+.show-type-list .active {
+  color: #1b9fe2;
+}
+.show-type-list .active .fr {
+  display: block;
+  text-align: right;
+  padding-right: 15px;
+}
+.studio_list {
+  padding: 10px 10px;
+}
+.studio_list .studio_item {
+  flex: initial;
+  width: 4.52rem !important;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  float: left;
+}
+.studio_list .studio_item:nth-of-type(2n) {
+  float: right;
+}
+.studio_list .img_box {
+  height: 2.89333333rem;
+  position: relative;
+}
+.studio_list .img_box img {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-radius: 6px 6px 0 0;
+  transform: translate3d(-50%, 0, 0);
+}
+.studio_list .studio_info {
+  padding: 6px 10px;
+  font-size: 12px;
+  background-color: #fff;
+}
+.studio_list .studio_info .title {
+  font-size: 14px;
+  line-height: 28px;
+  border-bottom: 1px solid #bfbfbf;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  word-wrap: none;
+  overflow: hidden;
+}
+.studio_list .studio_info .subject {
+  color: #1b9fe2;
+  white-space: nowrap;
+  word-wrap: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.studio_list .studio_info div {
+  line-height: 24px;
 }
