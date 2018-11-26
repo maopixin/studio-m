@@ -112,7 +112,6 @@ export default class StudioList extends Component {
     }
     this.setState({ refreshing: true });
     let query = this.createSearchData();
-    console.log(query)
     getStudioIndex(query).then((res)=>{
       if(res.status.code==0){
         this.setState({
@@ -122,6 +121,8 @@ export default class StudioList extends Component {
           total:res.data.total
         })
       }
+    }).catch(err=>{
+      Toast.info(err.message,2);
     })
   }
   createSearchData(){
