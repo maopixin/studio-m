@@ -117,3 +117,7 @@
 .studio_list .studio_info div {
   line-height: 24px;
 }
+.no_list {
+  text-align: center;
+  line-height: 2rem;
+}

@@ -15,7 +15,7 @@ export default class StudioList extends Component {
         rankType:[
           {
             text:"默认",
-            sortText:""
+            sortText:"-pv"
           },
           {
             text:"访问量升序",
@@ -77,7 +77,6 @@ export default class StudioList extends Component {
     })
   }
   componentDidMount() {
-    
     const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
     setTimeout(() => this.setState({
       height: hei
@@ -93,9 +92,10 @@ export default class StudioList extends Component {
       }).then((res)=>{
         Toast.hide();
         if(res.status.code==0){
+          if(res.data)
           this.setState({
             institute:res.data.name
-          })
+          });
         }else{
           Modal.alert('错误', "研究院信息获取失败，确定要重新获取吗？", [
             { text: '取消', onPress: () => {} },
@@ -112,8 +112,9 @@ export default class StudioList extends Component {
     }
     this.setState({ refreshing: true });
     let query = this.createSearchData();
+    console.log(query)
     getStudioIndex(query).then((res)=>{
-      if(res.status.code==0){
+      if(res.status.code===0){
         this.setState({
           list:[...this.state.list,...res.data.list],
           refreshing: false,
@@ -196,6 +197,7 @@ export default class StudioList extends Component {
           </Flex.Item>
         </Flex>
         <PullToRefresh
+          indicator={{ activate: '松开立即加载', deactivate: '下拉加载更多', finish: '加载完成' }}
           direction='up'
           style={{
             height: this.state.height,
@@ -208,35 +210,45 @@ export default class StudioList extends Component {
             this.pageChange();
           }}
         >
-          <ul 
-            className="studio_list clearfix"
-          >
-            {
-              this.state.list.map((e,i)=>{
-                return (
-                  <li
-                    className="studio_item" 
-                    key={e.id}
-                    onClick={()=>{
-                      this.props.history.push({pathname:'/institute/studio/'+e.id})
-                    }}
-                  >
-                    <div className="img_box">
-                      <img src={e.logo}/>
-                    </div>
-                    <div className="studio_info">
-                      <h4 className="title">{e.name}</h4>
-                      <div className='subject'>学科：{e.subject_major||"暂无"}</div>
-                      <div className="clearfix">
-                        <span className="fl">成员：{e.member_cnt}</span>
-                        <span className="fr">访问量：{e.pv}</span>
-                      </div>
-                    </div>
-                  </li>
-                )
-              })  
-            }
-          </ul>
+          {
+            this.state.list.length>0
+            ?
+            (
+              <ul 
+                className="studio_list clearfix"
+              >
+                {
+                  this.state.list.map((e,i)=>{
+                    return (
+                      <li
+                        className="studio_item" 
+                        key={e.id}
+                        onClick={()=>{
+                          this.props.history.push({pathname:'/institute/studio/'+e.id})
+                        }}
+                      >
+                        <div className="img_box">
+                          <img src={e.logo}/>
+                        </div>
+                        <div className="studio_info">
+                          <h4 className="title">{e.name}</h4>
+                          <div className='subject'>学科：{e.subject_major||"暂无"}</div>
+                          <div className="clearfix">
+                            <span className="fl">成员：{e.member_cnt}</span>
+                            <span className="fr">访问量：{e.pv}</span>
+                          </div>
+                        </div>
+                      </li>
+                    )
+                  })  
+                }
+              </ul>
+            )
+            :
+            (
+              <div className="no_list">暂无工作室数据</div>
+            )
+          }
         </PullToRefresh>
       </div>
     )

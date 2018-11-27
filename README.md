@@ -14,14 +14,14 @@ require.resolve('babel-plugin-transform-decorators-legacy')
 
  打开node_modules => react-scripts => config => webpack.config.prod.js
 
- 找到plugins配置项
+ 找到plugins => UglifyJsPlugin配置项 把新增代码放到compress里面即可
 
  ```javascript
 new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false,
         comparisons: false,
-        drop_console: true // ++
+        drop_console: true // 新增
     },
     // ...some code
 }),

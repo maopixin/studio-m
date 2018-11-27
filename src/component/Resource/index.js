@@ -11,13 +11,11 @@ export default withRouter(class Resource extends Component {
   render() {
     let {stateBox} = this.state;
     let {itemData} = this.props;
-    console.log(this.props)
     let {y,m,d} = itemData.utime;
     return (
       <div className='resource_item clearfix'>
         <a href={itemData._link||'javascript:;'}
             onClick={()=>{
-                console.log(1)
                 if(!itemData._link){
                     this.props.history.push(this.props.match.url+'/research/'+itemData.source_id)
                 }

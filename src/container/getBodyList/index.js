@@ -13,10 +13,10 @@ export default withRouter(class getBodyList extends Component {
       if (err) {
         Toast.fail('登录信息获取失败', 2)
       } else {
-        if(data.status.code==0){
+        if(data.status.code===0){
           if(data.data.is_login){
             getUserInfo().then(data=>{
-              if(data.status.code==0){
+              if(data.status.code===0){
                 data.data.user.get_login = true;
                 store.changeUserState(data.data.user);
               }
@@ -33,7 +33,7 @@ export default withRouter(class getBodyList extends Component {
     getCategory({
         studio:this.props.match.params.id
     }).then(data=>{
-        if(data.status.code==0){
+        if(data.status.code===0){
           console.log(store,data.data.nav)
           store.changeBodyList(data.data.nav);
         }else{

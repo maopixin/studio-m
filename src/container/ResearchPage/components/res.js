@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button,Toast,Modal} from 'antd-mobile'
+import {Toast,Modal} from 'antd-mobile'
 import {withRouter} from 'react-router-dom'
 import {uploadPhoto} from '../../../api/index'
 import store from '../../../mobx/index'

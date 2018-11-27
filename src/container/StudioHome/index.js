@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {withRouter,Link} from 'react-router-dom'
 import { observer,inject } from 'mobx-react';
 import store from '../../mobx/index'
-import {getStudioData, getStudioDetail, getStudioLatest, getActivityList ,getStuidoMembers ,getStudioState ,getStudioAllInfo} from '../../api/index';
+import {getStudioState ,getStudioAllInfo} from '../../api/index';
 import {Flex,WhiteSpace,Grid,WingBlank,Toast} from 'antd-mobile'
 import Title from '../../component/Title'
 import Information from '../../component/Information'
