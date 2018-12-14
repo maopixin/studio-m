@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import './style/index.css'
 import {Flex} from 'antd-mobile'
 export default class ActivityCase extends Component {
@@ -48,6 +49,7 @@ export default class ActivityCase extends Component {
     }
   }
   render() {
+    
     return (
       <div className='activity_case_page'>
         <Flex 
