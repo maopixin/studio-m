@@ -101,7 +101,7 @@
   line-height: 1.28rem;
 }
 .member_list_page .rank_list_box .rank_num {
-  width: 3.46666667rem;
+  width: 2.93333333rem;
 }
 .member_list_page .rank_list_box .rank_num span {
   display: inline-block;
@@ -121,11 +121,20 @@
   margin: 0.10666667rem 0 0 0.24rem;
 }
 .member_list_page .rank_list_box .name {
-  width: 1.54666667rem;
+  width: 1.94666667rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .member_list_page .rank_list_box .school {
   width: 3.04rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .member_list_page .rank_list_box .integral {
   width: 1.94666667rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

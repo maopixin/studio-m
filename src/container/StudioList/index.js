@@ -228,7 +228,7 @@ export default class StudioList extends Component {
                         }}
                       >
                         <div className="img_box">
-                          <img src={e.logo}/>
+                          <img src={e.thumb}/>
                         </div>
                         <div className="studio_info">
                           <h4 className="title">{e.name}</h4>

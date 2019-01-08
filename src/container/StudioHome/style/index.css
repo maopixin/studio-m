@@ -3,11 +3,11 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  -webkit-filter: blur(65px);
+  -webkit-filter: blur(20px);
   /* Chrome, Opera */
-  -moz-filter: blur(65px);
-  -ms-filter: blur(65px);
-  filter: blur(65px);
+  -moz-filter: blur(20px);
+  -ms-filter: blur(20px);
+  filter: blur(20px);
   overflow: hidden;
   height: 130px;
   position: relative;

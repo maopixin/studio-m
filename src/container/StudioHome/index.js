@@ -3,14 +3,14 @@ import {withRouter,Link} from 'react-router-dom'
 import { observer,inject } from 'mobx-react';
 import store from '../../mobx/index'
 import {getStudioState ,getStudioAllInfo} from '../../api/index';
-import {Flex,WhiteSpace,Grid,WingBlank,Toast} from 'antd-mobile'
+import {Flex,WhiteSpace,Grid,WingBlank,Toast,Modal} from 'antd-mobile'
 import Title from '../../component/Title'
 import Information from '../../component/Information'
 import Resource from '../../component/Resource'
 import LessonCard from './components/LessonCard'
 import './style/index.css'
 let scrollTop = 0;
-
+const alert = Modal.alert;
 @observer
 export default withRouter(class StudioHome extends Component {
   constructor(props){
@@ -93,7 +93,8 @@ export default withRouter(class StudioHome extends Component {
         user:{
 
         }
-      }
+      },
+      types:['information','notice','propaganda']
     }
   }
   componentDidMount() {
@@ -108,9 +109,6 @@ export default withRouter(class StudioHome extends Component {
 
 
   getFirstScreen(){
-    Toast.loading('努力加载中', 2, ()=>{
-      
-    })
     getStudioState({
       id:this.props.match.params.id
     }).then(data=>{
@@ -124,9 +122,6 @@ export default withRouter(class StudioHome extends Component {
         }
         this.setState({
           studioState:obj
-        },()=>{
-          console.log('结束')
-          // Toast.hide();
         })
     }).catch(error=>{
       let obj = this.state.studioState;
@@ -139,32 +134,34 @@ export default withRouter(class StudioHome extends Component {
     
   }
 firstLoading(){
-  this.setState({
-    loading:true
-  })
+  Toast.loading("努力加载中", 0);
   getStudioAllInfo({
       studio:this.props.match.params.id,
   }).then(res=>{
-      console.log(res,'studio');
       let data = res.data;
       var arr = [...data.info.list.slice(0,1),...data.notice.list.slice(0,1),...data.achievements.list.slice(0,1)];
-      arr[0].type = 'information';
-      arr[1].type = 'notice';
-      arr[2].type = 'propaganda';
-      console.log(arr)
+      arr.map((e,i)=>{
+        e.type = this.state.types[i]
+      })
       this.setState({
-        loading:false,
         information:{list:arr},
         teachingResources:{list:data.resource.list},
         activity:{list:data.activities.list},
         achievements:{list:data.schoolrooms.list},
         sdtudInfo:data.studio
+      },()=>{
+        Toast.hide();
       })
   }).catch(error=>{
-    this.setState({
-      loading:false
-    })
-    console.log(error);
+    alert('加载出错', error, [
+      { text: '返回', onPress: () => {
+      
+      }, style: 'default' },
+      { text: '重试', onPress: () => {
+        this.getFirstScreen();
+        this.firstLoading();
+      }},
+    ]);
   })
 }
   componentWillUnmount() {
@@ -180,12 +177,13 @@ firstLoading(){
       text: val.title,
     }));
     let {params} = this.props.match;
+    
     return (
       <div ref={node=>this.node=node}>
-        <div className='studio_bg' style={{backgroundImage:'url('+this.state.sdtudInfo.user.mediumAvatar+')'}}></div>
+        <div className='studio_bg' style={{backgroundImage:'url('+this.state.sdtudInfo.avatar+')'}}></div>
         <div className='studio_info bg_fff'>
           <div className='studio_info_pic'>
-            <img src={this.state.sdtudInfo.user.mediumAvatar || require('../../common/assets/img/none.png')} alt=''/>
+            <img src={this.state.sdtudInfo.avatar || require('../../common/assets/img/none.png')} alt=''/>
           </div>
           <div className='studio_name'>{this.state.sdtudInfo.subject_major}</div>
           <div className='studio_subject'>暂无学科</div>
