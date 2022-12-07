@@ -9,7 +9,7 @@
     "mobx-react": "^5.2.8",
     "mobx-react-router": "^4.0.5",
     "promise-polyfill": "8.0.0",
-    "qs": "^6.5.2",
+    "qs": "^6.5.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-fastclick": "^3.0.2",
